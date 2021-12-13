@@ -183,8 +183,21 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
+    for (j = 0; j < contas.length; j++) {
+        contas[j]
+        for (i = 0; i < contas[j].compras.length; i++) {
+            let soma = 0
+            soma = soma + contas[j].compras[i]   
+            for(let j in contas) {
+                contas[j].saldoTotal = contas[j].saldoTotal - soma
+    } 
 
-}
+    } contas[j].compras = []
+     return contas
+} 
+}    
+  
+
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
