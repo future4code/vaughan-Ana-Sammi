@@ -103,8 +103,39 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-  
+    let maiorNumero = 0
+    let menorNumero = Infinity
+    for (i = 0; i < array.length; i++) {
+        if (array[i] > maiorNumero) {
+            maiorNumero = array[i]
+    } }
+    
+    for (j = 0; j < array.length; j++) {
+        if (array[j] < menorNumero) {
+        menorNumero = array[j];     
+    } 
+    }      
+
+
+    let maiorNumero2 = 0
+    let menorNumero2 = Infinity
+   
+
+    for (n = 0; n < array.length; n++) {
+        if (array[n] !== maiorNumero) {
+            if (array[n] > maiorNumero2) {
+            maiorNumero2 = array[n]
+                  
+        }}} 
+    for (n = 0; n < array.length; n++) {
+        if (array[n] !== menorNumero) {
+            if (array[n] < menorNumero2) {
+            menorNumero2 = array[n]
+               
+            }}} return [maiorNumero2, menorNumero2]
 }
+    
+
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
