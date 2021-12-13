@@ -191,4 +191,3 @@ function retornaArrayOrdenadoPorData(consultas) {
 }
 
 
-// https://github.com/future4code/vaughan-Ana-Sammi/pull/17
