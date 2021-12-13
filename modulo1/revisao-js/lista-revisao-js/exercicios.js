@@ -20,11 +20,20 @@ function retornaArrayOrdenado(array) {
         return a-b
     }))
 }
+//DESAFIO
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  
-}
+    let arrayDePar = []
+    for (i=0; i<array.length; i++){
+        if (array[i] % 2 === 0) {
+        arrayDePar.push(array[i]) 
+        }
+      
+    } return arrayDePar
+} 
+
+
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
