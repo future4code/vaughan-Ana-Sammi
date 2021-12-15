@@ -17,7 +17,7 @@
             <h2><em>Loja da Ana</em></h2>
         </div>
         <div class="banner-paginas">
-            <a class="links" href="">Página Inicial</a>
+            <a class="links" href="index.html">Página Inicial</a>
             <a class="links" href="ctrl-estoque.html">Controle de Estoque</a>
             <a class="links" href="add-produto.html">Adicionar Produto</a>
             <a class="links" href="funcionarios.html">Funcionários</a>
@@ -31,7 +31,7 @@
 
     <h2 class="subtitulo">Controle de Estoque</h2>
 
-    <table>
+    <table class="tabela">
         <tr>
             <th>Foto</th>
             <th>Descrição</th>
@@ -40,41 +40,53 @@
         </tr>
 
         <tr>
-            <td><img src="/img/tenis-velho-produto-ma-qualidade-estragado-1472849247382_300x420.jpg" alt="Belo par de tênis novos"/></td>
+            <td><img id="imagem-estoque" src="/img/tenis-velho-produto-ma-qualidade-estragado-1472849247382_300x420.jpg" alt="Belo par de tênis novos"/></td>
             <td> Sapatos novos </td>
             <td> R$ 5000 </td>
             <td> 1 </td>
         </tr>
 
         <tr>
-            <td><img src="/img/bolsa.jpg" alt="Linda bolsa de marca. Novíssima."/></td>
+            <td><img id="imagem-estoque" src="/img/bolsa.jpg" alt="Linda bolsa de marca. Novíssima."/></td>
             <td> Bolsa de marca nova </td>
             <td> R$ 3000 </td>
             <td> 1 </td>
         </tr>
 
         <tr>
-            <td><img src="/img/renovacao-substituicao-de-escovas-de-dente-velhas-estragadas-desgrenhadas-e-coloridas_157402-2812.jpg" alt="Quatro escovas de dentes novas"/></td>
+            <td><img id="imagem-estoque" src="/img/renovacao-substituicao-de-escovas-de-dente-velhas-estragadas-desgrenhadas-e-coloridas_157402-2812.jpg" alt="Quatro escovas de dentes novas"/></td>
             <td> Escova de dentes (nova) </td>
             <td> R$ 100 </td>
             <td> 3 por mês </td>
         </tr>
 
         <tr>
-            <td><img src="/img/planta.jpg" alt="Planta viva bem verdinha"/></td>
+            <td><img id="imagem-estoque" src="/img/planta.jpg" alt="Planta viva bem verdinha"/></td>
             <td> Bela planta </td>
             <td> R$ 700 </td>
             <td> 1 </td>
         </tr>
         
         <!-- Crie mais uma linha desta tabela abaixo \/ -->
-        <tr>
-            <td><img src="/img/maxresdefault.jpg" alt="Carro importado novo"/></td>
+        <tr id="celulas-texto">
+            <td><img id="imagem-estoque" src="/img/maxresdefault.jpg" alt="Carro importado novo"/></td>
             <td>Carro novo</td>
             <td>R$ 999 milhões</td>
             <td>1</td>
         </tr>
     </table>
-
+    <div>
+        <p class="banner">Siga-nos nas redes sociais!</p>
+        <div class="banner-redes">
+            <a id="redes-sociais" href="instagrão.com/melhorloja">Instagrão</a>
+            <a id="redes-sociais" href="faceblock.com/melhorloja">Faceblock</a>
+            <a id="redes-sociais" href="tuiter.com/melhorloja509">Tuíter</a>
+        </div>
+        <div class="banner-redes">
+            <img id="imagem-icone" src="https://image.flaticon.com/icons/png/512/25/25305.png" />
+            <img id="imagem-icone" src="https://image.flaticon.com/icons/png/512/25/25425.png" />
+            <img id="imagem-icone" src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+        </div>
+    </div>
 </body>
 </html>

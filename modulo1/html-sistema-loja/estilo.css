@@ -48,7 +48,7 @@
 }
 
 #texto-busca {
-    border: 0px solid #222;
+    border: 1px solid rgb(218, 47, 166);
     background: rgb(250, 231, 243);
     width: 200px;
     height: 23px;
@@ -90,7 +90,7 @@
 #redes-sociais {
     font-family: Arial;
     margin: 0px 13px;
-    color:rgb(218, 47, 166)
+    color: rgb(218, 47, 166)
 }
 
 .banner-redes {
@@ -103,6 +103,40 @@
     height: 50px;
     padding-top: 30px;
     margin: 20px -20px 0px -20px;
-    background-color:rgb(250, 231, 243);
-    
+    background-color: rgb(250, 231, 243);
+}
+
+.tabela {
+    text-align: center;
+    display: inline-block;
+    margin: 20px 30%;
+    font-size: large;
+    background-color: rgb(241, 186, 225);
+    border: black;
+
+}
+
+#imagem-estoque {
+    max-width: 180px;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+    margin: 0px 18px;
+}
+
+#celulas-texto {
+    font-size: large;
+}
+
+#texto-form {
+    border: 1px solid rgb(218, 47, 166);
+    background: rgb(250, 231, 243);
+    width: 200px;
+    height: 15px;
+    padding: 5px 0 5px 5px;
+    line-height: 36px;
+}
+
+.formulario {
+    margin: 15px;
 }

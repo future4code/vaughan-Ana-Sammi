@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,50 +8,72 @@
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <title>Loja da Ana - Adicionar Produto</title>
 </head>
+
 <body>
     <div>
-        <p>Loja da Ana</p>
-    </div>
-    
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
+        <h2 class="banner">Entregamos em Londrina e região</h2>
     </div>
 
-    
-    <h2>Adicionar Produto</h2>
-    <form action="">
-        <div>
-            <label for="link-foto">Link para foto: </label>
-            <input type="url" id="link-foto" name="link-foto">
+    <div class="div-pai">
+        <div class="titulo-principal">
+            <h2><em>Loja da Ana</em></h2>
         </div>
-        
-        <div>
-            <label for="descricao">Descrição do produto: </label>
-            <!-- Adicione o id apropriado para o input abaixo -->
-            <input type="text" id="descricao" name="descrição">
+        <div class="banner-paginas">
+            <a class="links" href="index.html">Página Inicial</a>
+            <a class="links" href="ctrl-estoque.html">Controle de Estoque</a>
+            <a class="links" href="add-produto.html">Adicionar Produto</a>
+            <a class="links" href="funcionarios.html">Funcionários</a>
         </div>
-        
-        <div>
-            <label for="preco">Preço (em R$): </label>
-            <!-- Adicione o id apropriado e o type para receber números abaixo -->
-            <input type="number" id="preco" name="preço">
-        </div>
-        
-        <div>
-            <!-- Preencha as propriedades necessárias para os elementos abaixo -->
-            <label for="quantidade">Quantidade disponível: </label>
-            <input type="number" id="quantidade" name="quantidade">
+        <div id="campo-busca">
+            <input id="texto-busca" type="text" placeholder="Procure no site" />
+            <button id="botao-busca">OK</button>
         </div>
 
-        <div class="form-add">
-            <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
-            <button type="submit">Adicionar</button>
+        <h2 class="subtitulo">Adicionar Produto</h2>
+        <div class="corpo-do-site">
+            <form action="">
+                <div class="formulario">
+                    <label for="link-foto">Link para foto: </label>
+                    <input id="texto-form" type="url" id="link-foto" name="link-foto">
+                </div>
+
+                <div class="formulario">
+                    <label for="descricao">Descrição do produto: </label>
+                    <input id="texto-form" type="text" id="descricao" name="descrição">
+                </div>
+
+                <div class="formulario">
+                    <label for="preco">Preço (em R$): </label>
+                    <input id="texto-form" type="number" id="preco" name="preco">
+                </div>
+
+                <div class="formulario">
+                    <!-- Preencha as propriedades necessárias para os elementos abaixo -->
+                    <label for="quantidade">Quantidade disponível: </label>
+                    <input id="texto-form" type="number" id="quantidade" name="quantidade">
+                </div>
+
+                <div class="form-add">
+                    <button id="botao-busca" type="submit">Adicionar</button>
+                </div>
+
+            </form>
         </div>
 
-    </form>
+        <div>
+            <p class="banner">Siga-nos nas redes sociais!</p>
+            <div class="banner-redes">
+                <a id="redes-sociais" href="instagrão.com/melhorloja">Instagrão</a>
+                <a id="redes-sociais" href="faceblock.com/melhorloja">Faceblock</a>
+                <a id="redes-sociais" href="tuiter.com/melhorloja509">Tuíter</a>
+            </div>
+            <div class="banner-redes">
+                <img id="imagem-icone" src="https://image.flaticon.com/icons/png/512/25/25305.png" />
+                <img id="imagem-icone" src="https://image.flaticon.com/icons/png/512/25/25425.png" />
+                <img id="imagem-icone" src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+            </div>
+        </div>
 
 </body>
+
 </html>
