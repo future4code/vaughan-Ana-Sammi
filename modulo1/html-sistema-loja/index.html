@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Loja da Ana</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <title>Loja da Ana - Home</title>
 </head>
+
 <body>
     <div>
-        <h1>Bem-vind@ à <em>Loja da Ana</em>!</h1>
-        <p>Melhor loja da internet</p>
+        <h2 class="banner">Entregamos em Londrina e região</h2>
     </div>
 
-    <div>
-        <a href="">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
+    <div class="div-pai">
+        <div class="titulo-principal">
+            <h2><em>Loja da Ana</em></h2>
+        </div>
+        <div class="banner-paginas">
+            <a class="links" href="">Página Inicial</a>
+            <a class="links" href="ctrl-estoque.html">Controle de Estoque</a>
+            <a class="links" href="add-produto.html">Adicionar Produto</a>
+            <a class="links" href="funcionarios.html">Funcionários</a>
+        </div>
+        <div id="campo-busca">
+            <input id="texto-busca" type="text" placeholder="Procure no site" />
+            <button id="botao-busca">OK</button>
+        </div>
     </div>
 
-    <div>
+
+
+    <div class="corpo-do-site">
         <!-- ADICIONAR INFORMAÇOES SOBRE SUA LOJINHA -->
         <p>Aqui você encontra os <strong>melhores produto</strong>s da internet.</p>
         <p>Preços ótimos + produtos perfeitos = <u> Clientes felizes </u></p>
@@ -27,16 +40,18 @@
     </div>
 
     <div>
-        <p>Siga-nos nas redes sociais!</p>
-        <a href="instagrão.com/melhorloja">Instagrão</a>
-        <a href="faceblock.com/melhorloja">Faceblock</a>
-        <a href="tuiter.com/melhorloja509">Tuíter</a>
-
-        <div>
-            <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
-            <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
-            <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+        <p class="banner">Siga-nos nas redes sociais!</p>
+        <div class="banner-redes">
+            <a id="redes-sociais" href="instagrão.com/melhorloja">Instagrão</a>
+            <a id="redes-sociais" href="faceblock.com/melhorloja">Faceblock</a>
+            <a id="redes-sociais" href="tuiter.com/melhorloja509">Tuíter</a>
+        </div>
+        <div class="banner-redes">
+            <img id="imagem-icone" src="https://image.flaticon.com/icons/png/512/25/25305.png" />
+            <img id="imagem-icone" src="https://image.flaticon.com/icons/png/512/25/25425.png" />
+            <img id="imagem-icone" src="https://image.flaticon.com/icons/png/512/8/8800.png" />
         </div>
     </div>
 </body>
+
 </html>
