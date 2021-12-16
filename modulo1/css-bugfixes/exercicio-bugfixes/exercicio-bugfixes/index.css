@@ -73,6 +73,8 @@ div img {
     background-color: #2274a5;
     color: white;
     padding-top: 12px;
+    font-size: 10px;
+    text-align: center;
 }
 
 #container-de-descricao>ol {
