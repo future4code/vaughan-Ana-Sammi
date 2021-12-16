@@ -75,13 +75,24 @@ div img {
     background-color: #2274a5;
     color: white;
     padding-top: 12px;
-    font-size: 10px;
-    text-align: center;
+    font-size: 20px;
+    text-align: center, justify;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#container-de-descricao>ol {
+
+#container-de-descricao>p, ol, h3 {
     padding: 15px 0px;
+    position: relative;
+    top: 30%;
+
 }
+
+#container-de-descricao> ol {
+    display: inline-block;
+}
+
+
 
 #container-para-comprar {
     background-color: #e7eb90;
