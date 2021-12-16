@@ -44,8 +44,10 @@ div img {
     border-radius: 5px;
     font-size: 20px;
     color: white;
-    position: relative;
-    top: -14px;
+    transform: translateX(-50%);
+    position: absolute;    
+    left: 50%;
+    top: 50%;
     
 }
 
@@ -83,6 +85,7 @@ div img {
 
 #container-para-comprar {
     background-color: #e7eb90;
+    position: relative;
 }
 
 #container-para-comprar>p {
