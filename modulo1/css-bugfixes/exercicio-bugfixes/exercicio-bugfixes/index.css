@@ -34,7 +34,7 @@ div>p:first-child {
 }
 
 div img {
-    background: black;
+    width: 10px;
 }
 
 .botao-amarelo {
@@ -45,10 +45,10 @@ div img {
     font-size: 20px;
     color: white;
     transform: translateX(-50%);
-    position: absolute;    
+    position: absolute;
     left: 50%;
     top: 50%;
-    
+
 }
 
 .botao-amarelo:hover {
@@ -81,14 +81,16 @@ div img {
 }
 
 
-#container-de-descricao>p, ol, h3 {
+#container-de-descricao>p,
+ol,
+h3 {
     padding: 15px 0px;
     position: relative;
     top: 30%;
 
 }
 
-#container-de-descricao> ol {
+#container-de-descricao>ol {
     display: inline-block;
 }
 
@@ -157,4 +159,3 @@ td button {
 #back-button:hover {
     background-color: #635a3d
 }
-
