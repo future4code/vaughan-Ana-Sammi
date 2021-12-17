@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -65,18 +65,18 @@ div a:hover {
     text-align: center;
     width: 70%;
     font-size: 20px;
-    color:rgb(85, 84, 84);
+    color: rgb(85, 84, 84);
     margin-bottom: 70px;
 }
 
 div h1 {
-    color:  rgb(133, 131, 131);
+    color: rgb(133, 131, 131);
     margin-bottom: 20px;
     font-size: 60px;
-    
+
 }
 
-div h1:hover{
+div h1:hover {
     color: rgb(255, 217, 0);
     text-decoration: none;
 }
@@ -84,8 +84,8 @@ div h1:hover{
 /*---------- SEÇÕES --------- */
 
 .titulo-pagina {
-    color:  rgb(133, 131, 131);
-    margin-bottom: 20px;
+    color: rgb(133, 131, 131);
+    margin-bottom: 40px;
     margin-top: 30px;
     font-size: 60px;
     text-align: center;
@@ -96,12 +96,11 @@ div h2 {
     background-color: rgb(38, 219, 210);
     height: 50px;
     padding-top: 10px;
-    color: rgb(68, 68, 68)
-
+    color: rgb(68, 68, 68);
 }
 
 .habilidade {
-    display: inline-block;   
+    display: inline-block;
 }
 
 .habilidade img {
@@ -132,7 +131,7 @@ div h2 {
 
 .projeto img {
     max-width: 150px;
-    
+
 }
 
 
@@ -141,32 +140,30 @@ div h2 {
     font-size: 20px;
     max-width: 150px;
     text-align: center;
-    
+
 }
 
 .texto-do-projeto {
-    display:inline-block;
+    display: inline-block;
     max-width: 900px;
     text-align: center;
     position: relative;
     top: -100px;
-    left: 100px;
-
-    
+    left: 100px;   
 }
 
 /*------------- FOOTER ------------ */
 .bottom {
     position: fixed;
-    bottom:0;
+    bottom: 0;
     background-color: rgb(38, 219, 210);
     width: 100%;
     margin-top: 20px;
     margin-bottom: 10px;
     height: 70px;
     color: white;
-    display:inline-block;
-    position:relative;
+    display: inline-block;
+    position: relative;
 }
 
 #publi {
@@ -177,7 +174,7 @@ div h2 {
 }
 
 .redes-sociais {
-    display:inline-block;
+    display: inline-block;
     transform: translateX(-50%);
     position: absolute;
     top: 10px;
@@ -189,5 +186,67 @@ div h2 {
     width: 50px;
     padding-top: 2px;
     margin-left: 20px;
-   
+}
+
+/*---------- EXPERIÊNCIAS --------- */
+#logotipos {
+    max-width: 300px;
+    transform: translateX(-50%);
+    padding-left: 100px;
+}
+
+.corpo-exeperiencias {
+    text-align: center;
+    margin-left: 320px;
+    margin-bottom: 40px;
+
+}
+
+/*---------- CONTATO --------- */
+div form {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+div form label {
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+div form input {
+    width: 250px;
+    height: 20px;
+}
+
+div form input:hover {
+    border-color: rgb(38, 219, 210);
+    border-width: 3px;
+}
+
+.form-msg {
+    height: 150px;
+    width: 250px;
+    font-size: large;
+}
+
+textarea:hover {
+    border-color: rgb(38, 219, 210);
+    border-width: 3px;
+}
+
+form button {
+    display: block;
+    transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    margin-top: 20px;
+    width: 80px;
+    height: 30px;
+    font-size: large;
+}
+
+form button:hover {
+    background-color: rgb(38, 219, 210);
 }
