@@ -1,0 +1,163 @@
+/*------------- GERAL ------------ */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.secao {
+    text-align: center;
+    padding-bottom: 70px;
+}
+
+
+/*------------- HEADER ------------ */
+.top {
+    width: 100%;
+    margin-top: 10px;
+    height: 70px;
+    position: relative;
+    background-color: rgb(38, 219, 210);
+}
+
+header img {
+    width: 65px;
+    margin-left: 100px;
+    padding-top: 2px;
+    position: absolute;
+    left: 10px;
+}
+
+
+.indice {
+    display: inline-block;
+    transform: translateX(-50%);
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+}
+
+div a {
+    color: rgb(133, 131, 131);
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+div a:hover {
+    color: rgb(255, 230, 2);
+}
+
+
+/*------------- BIO ------------ */
+
+#minha-foto {
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.mini-bio {
+    margin: 20px auto;
+    text-align: center;
+    width: 70%;
+    font-size: 20px;
+    color:rgb(85, 84, 84);
+    margin-bottom: 70px;
+}
+
+div h1 {
+    color:  rgb(133, 131, 131);
+    margin-bottom: 20px;
+    font-size: 60px;
+    
+}
+
+div h1:hover{
+    color: rgb(255, 217, 0);
+    text-decoration: none;
+}
+
+/*---------- SEÇÕES --------- */
+
+div h2 {
+    font-size: 40px;
+    background-color: rgb(38, 219, 210);
+    height: 50px;
+    padding-top: 10px;
+    color: rgb(68, 68, 68)
+
+}
+
+.habilidade {
+    display: inline-block;   
+}
+
+.habilidade img {
+    max-width: 200px;
+    margin-top: 40px;
+    margin-left: 90px;
+}
+
+#js {
+    margin-left: -90px;
+}
+
+.habilidade figcaption {
+    margin-right: -80px;
+    margin-top: 15px;
+    font-size: 30px;
+}
+
+#projeto-inteiro {
+    text-align: left;
+    margin-left: 100px;
+}
+
+.projeto {
+    display: inline-block;
+    margin-top: 40px;
+}
+
+.projeto img {
+    max-width: 150px;
+    
+}
+
+
+.projeto figcaption {
+    margin-top: 15px;
+    font-size: 20px;
+    max-width: 150px;
+    text-align: center;
+    
+}
+
+.texto-do-projeto {
+    display:inline-block;
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+    top: -100px;
+    left: 100px;
+
+    
+}
+
+/*------------- FOOTER ------------ */
+.bottom {
+    background-color: rgb(38, 219, 210);
+    width: 100%;
+    margin-top: 20px;
+    height: 70px;
+    color: white;
+}
+
+#publi {
+    font-size: 10px;
+    text-align: center;
+    margin-top: 30px;
+
+}
