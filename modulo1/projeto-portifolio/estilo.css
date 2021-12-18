@@ -6,6 +6,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
 }
 
 .secao {
@@ -96,7 +97,7 @@ div h2 {
     background-color: rgb(38, 219, 210);
     height: 50px;
     padding-top: 10px;
-    color: rgb(68, 68, 68);
+    color: rgb(85, 84, 84);
 }
 
 .habilidade {
@@ -122,6 +123,7 @@ div h2 {
 #projeto-inteiro {
     text-align: left;
     margin-left: 100px;
+    margin-bottom: 20px;
 }
 
 .projeto {
@@ -156,14 +158,12 @@ div h2 {
 .bottom {
     position: fixed;
     bottom: 0;
+    left: 0;
     background-color: rgb(38, 219, 210);
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 10px;
     height: 70px;
     color: white;
     display: inline-block;
-    position: relative;
 }
 
 #publi {
@@ -188,17 +188,28 @@ div h2 {
     margin-left: 20px;
 }
 
+#redes-icones:hover {
+    width: 53px;
+    
+}
+
 /*---------- EXPERIÊNCIAS --------- */
 #logotipos {
-    max-width: 300px;
+    width: 300px;
     transform: translateX(-50%);
     padding-left: 100px;
 }
 
-.corpo-exeperiencias {
+#logotipos:hover {
+    width: 305px;
+}
+
+
+.corpo-experiencias {
     text-align: center;
     margin-left: 320px;
     margin-bottom: 40px;
+    margin-top: 150px;
 
 }
 
@@ -206,6 +217,7 @@ div h2 {
 div form {
     text-align: center;
     margin-bottom: 40px;
+    margin-top: 70px;
 }
 
 
@@ -249,4 +261,12 @@ form button {
 
 form button:hover {
     background-color: rgb(38, 219, 210);
+}
+
+/*---------- SOBRE MIM --------- */
+
+#sobre-mim {
+    position: relative;
+    top: 150px;
+   
 }
