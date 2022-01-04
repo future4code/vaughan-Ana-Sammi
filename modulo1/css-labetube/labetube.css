@@ -10,23 +10,24 @@ body {
     align-content: space-between;
     justify-items: stretch;
     align-items: stretch;
-
+    background-color: rgb(226, 226, 226)
 }
+
 header {
-    background-color: rgb(184, 71, 184);
+    background-color: rgb(84, 0, 153);
+    color: rgb(226, 226, 226);
     height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 30px;
-    
 }
 
 nav {
     display: grid;
     grid-template-rows: 1fr 1fr 0.5fr 0;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    align-content: space-around; 
+    align-content: space-around;
     align-items: center;
     padding: 20px 20px;
     column-gap: 20px;
@@ -34,11 +35,17 @@ nav {
 }
 
 #celula {
-    box-shadow: 5px 5px 10px grey;
+    box-shadow: 5px 5px 10px rgb(207, 207, 207);
 }
 
 a {
     cursor: pointer;
+    text-decoration: none;
+}
+
+a:visited {
+    color: rgb(226, 226, 226);
+    text-decoration: none;
 }
 
 #video-img {
@@ -51,12 +58,27 @@ div p {
 }
 
 footer {
-    background-color: rgb(184, 71, 184);
+    background-color: rgb(84, 0, 153);
+    color: rgb(226, 226, 226);
     width: 100vw;
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
+}
+
+/* ----- Videos ----- */
+
+.pagina-video {
+    display: flex;
+    flex-direction: column;
+}
+
+#video-unico {
+    width: 60%;
+    cursor: pointer;
+}
+
+#titulo-video {
+    font-size: 35px;
 }
