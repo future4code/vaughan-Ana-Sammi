@@ -1,15 +1,16 @@
 /* CELULAR */
 @media screen and (max-device-width: 480px) {
     body {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        height: 100vh; 
+        grid-template-rows: 10% 10% 60% 10% 10% ;
     }
     header {
         display: flex;
         justify-content: space-between;
         align-content: space-between;
         width: 100%;
+        grid-row: 1 / 2;
+        
     }
     input {
         max-width: 60%;
@@ -18,6 +19,8 @@
         max-width: 50%;
     }
     .pagina-video {
+        grid-row: 2 / 5;
+        align-self: center;
         display: grid;
         grid: 20% 80% / 1fr;
         align-content: start;
@@ -30,6 +33,13 @@
     }
     #video-unico {
         min-width: 90vw;
+    }
+
+    footer {
+        width: 100%;
+        grid-row: 5 / 6;
+        align-self: end;
+           
     }
     
 

@@ -44,8 +44,13 @@ a{
 }
 
 
-a:visited {
+header a:visited {
     color: rgb(226, 226, 226);
+    text-decoration: none;
+}
+
+div a:visited {
+    color: rgb(84, 0, 153);
     text-decoration: none;
 }
 
