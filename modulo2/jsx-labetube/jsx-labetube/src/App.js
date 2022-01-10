@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import lupa from './img/lupa.png';
 import './App.css';
 
 function App() {
@@ -12,8 +12,9 @@ function App() {
     <div className="App">
           <div className="tela-inteira">
         <header>
-            <h1>Lab Tube</h1>
-            <input type="text" placeholder="Busca" id="campoDeBusca" />
+            <h1>LabeTubeᴮᴿ</h1>
+            <input className="busca" type="text" placeholder="Search" id="campoDeBusca" />
+            <button type="submit"><img className="botao-busca" src={lupa} /></button>
         </header>
 
         <main>
