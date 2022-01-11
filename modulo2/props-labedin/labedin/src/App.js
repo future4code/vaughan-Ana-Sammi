@@ -16,6 +16,12 @@ function App() {
           descricao="Oi, eu sou a Ana Sue. Antiga Médica Veterinária, futura programadora e sempre curiosa."
         />
 
+        <ImagemButton 
+          imagem="https://image.flaticon.com/icons/png/512/117/117472.png" 
+          texto="Ver mais"
+        />
+      </div>
+
 <div className="page-section-container">
         <h2>Contato</h2>
         <CardPequeno 
@@ -29,11 +35,8 @@ function App() {
         />
       </div>
         
-        <ImagemButton 
-          imagem="https://image.flaticon.com/icons/png/512/117/117472.png" 
-          texto="Ver mais"
-        />
-      </div>
+        
+
 
       <div className="page-section-container">
         <h2>Experiências profissionais</h2>
