@@ -4,12 +4,23 @@ import CardGrande from './components/CardGrande/CardGrande';
 import CardPequeno from './components/CardPequeno/CardPequeno';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 import FotoPerfil from './img/FotoPerfil.jpg';
+import styled from 'styled-components';
+
+
+
+
 
 function App() {
+  
+  const Subtitulo = styled.h2 `
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+`
   return (
     <div className="App">
       <div className="page-section-container">
-        <h2>Dados pessoais</h2>
+        <Subtitulo>Dados pessoais</Subtitulo>
         <CardGrande 
           imagem= {FotoPerfil} 
           nome="Ana Sue" 
