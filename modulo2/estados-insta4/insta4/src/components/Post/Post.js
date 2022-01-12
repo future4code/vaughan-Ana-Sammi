@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import {IconeSemContador} from '../IconeSemContador/IconeSemContador'
 import {IconeComContador} from '../IconeComContador/IconeComContador'
-
+import iconeFaveBranco from '../../img/bookmark_border_black_24dp.svg'
+import iconeFavePreto from '../../img/bookmark_black_24dp.svg'
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
@@ -45,17 +46,24 @@ class Post extends React.Component {
     curtido: false,
     numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 0
+    numeroComentarios: 0,
+    salvo: false,
+  }
+
+  onClickSalvo = () => {
+    this.setState({salvo: !this.state.salvo})
+
+    if (this.state.salvo === true) {
+      this.setState({numeroSalvos: this.state.numeroSalvos - 1})
+    } else {
+      this.setState({numeroSalvos: this.state.numeroSalvos + 1})
+    } 
   }
 
   onClickCurtida = () => {
     this.setState({curtido: !this.state.curtido})
 
-    if (this.state.curtido === true) {
-      this.setState({numeroCurtidas: this.state.numeroCurtidas - 1})
-    } else {
-      this.setState({numeroCurtidas: this.state.numeroCurtidas + 1})
-    }  
+      
   }
 
   onClickComentario = () => {
@@ -86,6 +94,14 @@ class Post extends React.Component {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
 
+    let iconeSalvo 
+
+    if(this.state.salvo) {
+      iconeSalvo = iconeFavePreto
+    } else {
+      iconeSalvo = iconeFaveBranco
+    }
+
     return <PostContainer>
       <PostHeader>
         <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
@@ -105,6 +121,11 @@ class Post extends React.Component {
           icone={iconeComentario}
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
+        />
+
+        <IconeSemContador
+          icone={iconeSalvo}
+          onClickIcone={this.onClickSalvo}
         />
       </PostFooter>
       {componenteComentario}
