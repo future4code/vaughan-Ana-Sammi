@@ -9,9 +9,9 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
 import iconeCompartilhar from '../../img/share_black_24dp.svg'
-import iconeFace from '../../img/face_black_24dp.svg'
-import iconeTwitter from '../../img/flutter_dash_black_24dp.svg'
-import iconeInsta from '../../img/photo_camera_black_24dp.svg'
+// import iconeFace from '../../img/face_black_24dp.svg'
+// import iconeTwitter from '../../img/flutter_dash_black_24dp.svg'
+// import iconeInsta from '../../img/photo_camera_black_24dp.svg'
 
 const PostContainer = styled.div`
   border: 1px solid gray;
@@ -67,16 +67,16 @@ class Post extends React.Component {
 
   onClickSalvo = () => {
     this.setState({salvo: !this.state.salvo})
-
-    if (this.state.salvo === true) {
-      this.setState({numeroSalvos: this.state.numeroSalvos - 1})
-    } else {
-      this.setState({numeroSalvos: this.state.numeroSalvos + 1})
-    } 
   }
 
   onClickCurtida = () => {
     this.setState({curtido: !this.state.curtido})
+
+    if (this.state.curtido === true) {
+      this.setState({numeroCurtidas: this.state.numeroCurtidas - 1})
+    } else {
+      this.setState({numeroCurtidas: this.state.numeroCurtidas + 1})
+    } 
     
   }
 
