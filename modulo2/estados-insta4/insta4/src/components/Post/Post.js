@@ -8,6 +8,10 @@ import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+import iconeCompartilhar from '../../img/share_black_24dp.svg'
+import iconeFace from '../../img/face_black_24dp.svg'
+import iconeTwitter from '../../img/flutter_dash_black_24dp.svg'
+import iconeInsta from '../../img/photo_camera_black_24dp.svg'
 
 const PostContainer = styled.div`
   border: 1px solid gray;
@@ -48,7 +52,18 @@ class Post extends React.Component {
     comentando: false,
     numeroComentarios: 0,
     salvo: false,
+    compartilhar: false
   }
+
+  
+
+
+  // onClickCompartilhar = value => () => {
+  //   setSelectedOption(value);
+  //   setIsOpen(false);
+  //   this.setState({compartilhar: !this.state.compartilhar})
+  // }
+
 
   onClickSalvo = () => {
     this.setState({salvo: !this.state.salvo})
@@ -62,8 +77,7 @@ class Post extends React.Component {
 
   onClickCurtida = () => {
     this.setState({curtido: !this.state.curtido})
-
-      
+    
   }
 
   onClickComentario = () => {
@@ -81,7 +95,6 @@ class Post extends React.Component {
 
   render() {
     let iconeCurtida
-
     if(this.state.curtido) {
       iconeCurtida = iconeCoracaoPreto
     } else {
@@ -89,18 +102,18 @@ class Post extends React.Component {
     }
 
     let componenteComentario
-
     if(this.state.comentando) {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
 
     let iconeSalvo 
-
     if(this.state.salvo) {
       iconeSalvo = iconeFavePreto
     } else {
       iconeSalvo = iconeFaveBranco
     }
+
+
 
     return <PostContainer>
       <PostHeader>
@@ -127,6 +140,12 @@ class Post extends React.Component {
           icone={iconeSalvo}
           onClickIcone={this.onClickSalvo}
         />
+
+        <IconeSemContador
+          icone={iconeCompartilhar}
+          onClickIcone={this.onClickCompartilhar}
+        />
+
       </PostFooter>
       {componenteComentario}
     </PostContainer>
