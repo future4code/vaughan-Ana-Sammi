@@ -40,8 +40,8 @@ class App extends React.Component {
 adicionarPost = () => {
   const novoPost = {
     nomeUsuario: this.state.valorInputNome,
-    fotoUsuario: this.state.valorInputFotoPerfil,
-    fotoPost: this.state.valorInputFotoPost
+    fotoUsuario: <img src={this.state.valorInputFotoPerfil}/>,
+    fotoPost: <img src={this.state.valorInputFotoPost}/>
   };
 
   const novosPosts = [...this.state.posts, novoPost];
@@ -87,7 +87,7 @@ onChangeInputFotoPost = (event) => {
           <input
             value={this.state.valorInputFotoPerfil}
             onChange={this.onChangeInputFotoPerfil}
-            placeholder={"Foto Perfil"}
+            placeholder={"https://exemplo.com"}
           />
           <input
             value={this.state.valorInputFotoPost}
