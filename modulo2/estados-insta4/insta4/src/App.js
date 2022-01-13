@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styled from 'styled-components';
 
 
@@ -16,24 +17,24 @@ class App extends React.Component {
     posts: [
       {
         nomeUsuario: "paulinha",
-        fotoUsuario: "FotoUsuario",
-        fotoPost: "FotoPost"
+        fotoUsuario: <img src='https://picsum.photos/200/300?random=1'/>,
+        fotoPost: <img src='https://picsum.photos/200/300?random=2'/>
       },
       {
         nomeUsuario: 'aninha',
-        fotoUsuario: "FotoUsuario",
-        fotoPost: "FotoPost"
+        fotoUsuario: <img src='https://picsum.photos/200/300?random=3'/>,
+        fotoPost: <img src='https://picsum.photos/200/300?random=4'/>
       },
 
       {
         nomeUsuario: 'blade_cachorro',
-        fotoUsuario: "FotoUsuario",
-        fotoPost: "FotoPost"
+        fotoUsuario: <img src='https://picsum.photos/200/300?random=5'/>,
+        fotoPost: <img src='https://picsum.photos/200/300?random=6'/>
       }
     ],
     valorInputNome: "",
     valorInputFotoPerfil: "",
-    valorInputFotoPost: '',
+    valorInputFotoPost: "",
 }
 
 adicionarPost = () => {
@@ -44,10 +45,11 @@ adicionarPost = () => {
   };
 
   const novosPosts = [...this.state.posts, novoPost];
-  this.setState({post: novosPosts});
+
+  this.setState({posts: novosPosts});
   this.setState({valorInputNome: ""});
   this.setState({valorInputFotoPerfil: ""});
-  this.setState({valorInputFotoPost: ''})
+  this.setState({valorInputFotoPost: ""})
 }
 
 onChangeInputNome = (event) => {
