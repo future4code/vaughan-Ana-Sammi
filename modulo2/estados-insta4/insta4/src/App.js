@@ -1,35 +1,35 @@
 import React from 'react';
-
+import Post from './components/Post/Post';
 import styled from 'styled-components';
 
 
 
 
-// const MainContainer = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   flex-direction: column;
-//   align-items: center;
-// `
+const MainContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`
 
 class App extends React.Component {
   state = {
     posts: [
       {
         nomeUsuario: "paulinha",
-        fotoUsuario: <img src='https://picsum.photos/200/300?random=1'/>,
-        fotoPost: <img src='https://picsum.photos/200/300?random=2'/>
+        fotoUsuario: 'https://picsum.photos/200?random=1',
+        fotoPost: 'https://picsum.photos/200?random=2'
       },
       {
         nomeUsuario: 'aninha',
-        fotoUsuario: <img src='https://picsum.photos/200/300?random=3'/>,
-        fotoPost: <img src='https://picsum.photos/200/300?random=4'/>
+        fotoUsuario: 'https://picsum.photos/200?random=3',
+        fotoPost: 'https://picsum.photos/200?random=4'
       },
 
       {
         nomeUsuario: 'blade_cachorro',
-        fotoUsuario: <img src='https://picsum.photos/200/300?random=5'/>,
-        fotoPost: <img src='https://picsum.photos/200/300?random=6'/>
+        fotoUsuario: 'https://picsum.photos/200?random=5',
+        fotoPost: 'https://picsum.photos/200?random=6'
       }
     ],
     valorInputNome: "",
@@ -40,8 +40,8 @@ class App extends React.Component {
 adicionarPost = () => {
   const novoPost = {
     nomeUsuario: this.state.valorInputNome,
-    fotoUsuario: <img src={this.state.valorInputFotoPerfil}/>,
-    fotoPost: <img src={this.state.valorInputFotoPost}/>
+    fotoUsuario: this.state.valorInputFotoPerfil,
+    fotoPost: this.state.valorInputFotoPost
   };
 
   const novosPosts = [...this.state.posts, novoPost];
@@ -67,17 +67,22 @@ onChangeInputFotoPost = (event) => {
   render() {
      const postCompleto = this.state.posts.map((post) => {
        return (
-        <p>
-        {post.nomeUsuario}
-        {post.fotoUsuario}
-        {post.fotoPost}
-        </p>
+        <MainContainer>
+          <Post
+          nomeDoUsuario={post.nomeUsuario}
+          fotoDoUsuario={post.fotoUsuario}
+          fotoDoPost={post.fotoPost}
+         />
+        </MainContainer>
+        
        )
      });
 
+
      return (
        <>
-        <div>{postCompleto}</div>
+        <>{postCompleto}</>
+        
         <div>
           <input
             value={this.state.valorInputNome}
@@ -92,7 +97,7 @@ onChangeInputFotoPost = (event) => {
           <input
             value={this.state.valorInputFotoPost}
             onChange={this.onChangeInputFotoPost}
-            placeholder={"Foto Post"}
+            placeholder={"https://exemplo"}
           />
           <button onClick={this.adicionarPost}>Postar</button>
        </div>
