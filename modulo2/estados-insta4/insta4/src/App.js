@@ -3,31 +3,38 @@ import Post from './components/Post/Post';
 import styled from 'styled-components';
 
 
-
-
 const MainContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 `
+const Entradas = styled.input`
+  margin: 8px 0;
+  width: 200px;
+`
+const Botao = styled.button`
+  height: 30px;
+
+`
+
 
 class App extends React.Component {
   state = {
     posts: [
       {
-        nomeUsuario: "paulinha",
+        nomeUsuario: "@paulinha",
         fotoUsuario: 'https://picsum.photos/200?random=1',
         fotoPost: 'https://picsum.photos/200?random=2'
       },
       {
-        nomeUsuario: 'aninha',
+        nomeUsuario: '@aninha',
         fotoUsuario: 'https://picsum.photos/200?random=3',
         fotoPost: 'https://picsum.photos/200?random=4'
       },
 
       {
-        nomeUsuario: 'blade_cachorro',
+        nomeUsuario: '@blade_cachorro',
         fotoUsuario: 'https://picsum.photos/200?random=5',
         fotoPost: 'https://picsum.photos/200?random=6'
       }
@@ -83,24 +90,24 @@ onChangeInputFotoPost = (event) => {
        <>
         <>{postCompleto}</>
         
-        <div>
-          <input
+        <MainContainer>
+          <Entradas
             value={this.state.valorInputNome}
             onChange={this.onChangeInputNome}
-            placeholder={"Nome"}
+            placeholder={"@Nome"}
           />
-          <input
+          <Entradas
             value={this.state.valorInputFotoPerfil}
             onChange={this.onChangeInputFotoPerfil}
             placeholder={"https://exemplo.com"}
           />
-          <input
+          <Entradas
             value={this.state.valorInputFotoPost}
             onChange={this.onChangeInputFotoPost}
-            placeholder={"https://exemplo"}
+            placeholder={"https://exemplo.com"}
           />
-          <button onClick={this.adicionarPost}>Postar</button>
-       </div>
+          <Botao onClick={this.adicionarPost}>Postar</Botao>
+       </MainContainer>
        
       </>
      )
