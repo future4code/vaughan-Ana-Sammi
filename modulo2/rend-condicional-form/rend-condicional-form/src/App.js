@@ -18,15 +18,27 @@ export default class App extends React.Component {
 
   render() {
     const renderizarEtapa = () => {
-      if(this.state.etapa === 1) {
-        return <Etapa1/>   
-      } else if(this.state.etapa === 2) {
-        return <Etapa2/>
-      } else if(this.state.etapa === 3) {
-        return <Etapa3/> 
-      } else {
-        return <Etapa4/>
+      
+      switch (this.state.etapa) {
+        case 1:
+          return <Etapa1/>;
+        case 2: 
+          return <Etapa2/>;  
+        case 3: 
+          return <Etapa3/>; 
+        case 4: 
+          return <Etapa4/>; 
       }
+      
+      // if(this.state.etapa === 1) {
+      //   return <Etapa1/>   
+      // } else if(this.state.etapa === 2) {
+      //   return <Etapa2/>
+      // } else if(this.state.etapa === 3) {
+      //   return <Etapa3/> 
+      // } else {
+      //   return <Etapa4/>
+      // }
     };
 
   return (
