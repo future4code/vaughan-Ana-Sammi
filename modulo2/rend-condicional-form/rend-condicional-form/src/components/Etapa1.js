@@ -6,23 +6,27 @@ export default class Etapa1 extends React.Component {
         return (
             <div>
                 <h1>
-                    Formulário
+                    Etapa 1 - Dados Gerais
                 </h1>
 
-                <form>
-                    <input>Nome</input>
-                    <input>Idade</input>
-                    <input>E-mail</input>
+                <div>
+                    <p>1. Qual é o seu nome?</p>
+                    <input/>
+                    <p>2. Qual é a sua idade?</p>
+                    <input/>
+                    <p>3. Qual é o seu e-mail?</p>
+                    <input/>
+                    <p>4. Qual é a sua escolaridade?</p>
                     <select>
                         <option>Ensino Médio Incompleto</option>
                         <option>Ensino Médio Completo</option>
                         <option>Ensino Superior Incompleto</option>
                         <option>Ensino Superior Completo</option>
                     </select>
-                </form>
-                <button>Enviar</button>
+                </div>
+               
             </div>
-        )
+        );
     }
     
 }

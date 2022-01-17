@@ -9,7 +9,12 @@ export default class App extends React.Component {
     etapa: 1
   };
 
-  
+  irParaEtapa = () => {
+    this.setState({
+      etapa: this.state.etapa + 1
+    })
+  };
+ 
 
   render() {
     const renderizarEtapa = () => {
@@ -24,21 +29,11 @@ export default class App extends React.Component {
       }
     };
 
-  const irParaEtapa = () => {
-      this.setState({
-        etapa: 1
-      })
-    };
-
   return (
     <div>
       {renderizarEtapa()}
-      <button onClick={irParaEtapa}>'Próximo'</button>
-      
-    </div>
-    
-
-    
+      <button onClick={this.irParaEtapa}>Próximo</button>  
+    </div>   
   )
     
   
