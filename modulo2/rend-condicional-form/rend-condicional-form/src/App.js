@@ -34,7 +34,7 @@ export default class App extends React.Component {
           return <Etapa2/>;  
         case 3: 
           return <Etapa3/>; 
-        case 4: 
+        default: 
           return <Etapa4/>; 
       }
 
