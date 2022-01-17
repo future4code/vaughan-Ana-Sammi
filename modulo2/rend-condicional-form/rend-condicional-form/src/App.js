@@ -3,6 +3,14 @@ import Etapa1 from './components/Etapa1';
 import Etapa2 from './components/Etapa2';
 import Etapa3 from './components/Etapa3';
 import Etapa4 from './components/Etapa4';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+`
 
 export default class App extends React.Component {
   state = {
@@ -29,7 +37,7 @@ export default class App extends React.Component {
         case 4: 
           return <Etapa4/>; 
       }
-      
+
       // if(this.state.etapa === 1) {
       //   return <Etapa1/>   
       // } else if(this.state.etapa === 2) {
@@ -42,14 +50,12 @@ export default class App extends React.Component {
     };
 
   return (
-    <div>
+    <Container>
       {renderizarEtapa()}
       <button onClick={this.irParaEtapa}>Próximo</button>  
-    </div>   
-  )
-    
-  
-     
-}
+    </Container>   
+  )   
+       
+  }
 }
 

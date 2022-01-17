@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import { ContainerForm } from './estilo';
+
 
 export default class Etapa1 extends React.Component {
     render() {
@@ -9,7 +10,7 @@ export default class Etapa1 extends React.Component {
                     Etapa 1 - Dados Gerais
                 </h1>
 
-                <div>
+                <ContainerForm>
                     <p>1. Qual é o seu nome?</p>
                     <input/>
                     <p>2. Qual é a sua idade?</p>
@@ -23,7 +24,7 @@ export default class Etapa1 extends React.Component {
                         <option>Ensino Superior Incompleto</option>
                         <option>Ensino Superior Completo</option>
                     </select>
-                </div>
+                </ContainerForm>
                
             </div>
         );

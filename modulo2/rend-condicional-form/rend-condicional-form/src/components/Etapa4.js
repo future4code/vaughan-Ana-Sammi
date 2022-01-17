@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { ContainerForm } from './estilo';
 
 export default class Etapa2 extends React.Component {
     render() {
@@ -9,9 +9,9 @@ export default class Etapa2 extends React.Component {
                     Etapa 4 -O formulário acabou!
                 </h1>
 
-                <div>
+                <ContainerForm>
                     <p>Muito obrigada pela participação! Entraremos em contato!</p>
-                </div>
+                </ContainerForm>
             </div>
         );
     }   
