@@ -4,13 +4,24 @@ import './styles.css'
 
 const TarefaList = styled.ul`
   padding: 0;
-  width: 200px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+ 
+`
+const LinhaDeTarefa = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
 `
 
 const Tarefa = styled.li`
   text-align: left;
   text-decoration: ${({completa}) => (completa ? 'line-through' : 'none')};
+  
 `
+
 
 const InputsContainer = styled.div`
   display: grid;
@@ -22,13 +33,13 @@ class App extends React.Component {
     state = {
       tarefas: [
         {
-          id: Date.now(), 
+          id: Math.random(), 
           texto: 'Texto da tarefa',
           completa: false 
         },
         {
-          id: Date.now(), 
-          texto: 'Estudar',
+          id: Math.random(), 
+          texto: 'Tarefa 2',
           completa: true 
         }
       ],
@@ -82,6 +93,18 @@ class App extends React.Component {
     this.setState({filtro: event.target.value})
   }
 
+  removerTarefa = (id) => {
+    const tarefasRemovidas = this.state.tarefas.filter((item) => {
+      if (id === item.id) {
+        return false
+      } else {
+        return true
+      }
+    })
+    this.setState({tarefas: tarefasRemovidas})
+  }
+
+
   render() {
     const listaFiltrada = this.state.tarefas.filter(tarefa => {
       switch (this.state.filtro) {
@@ -111,18 +134,26 @@ class App extends React.Component {
             <option value="completas">Completas</option>
           </select>
         </InputsContainer>
+        
         <TarefaList>
           {listaFiltrada.map(tarefa => {
             return (
+              <LinhaDeTarefa>
               <Tarefa
                 completa={tarefa.completa}
                 onClick={() => this.selectTarefa(tarefa.id)}
               >
                 {tarefa.texto}
+               
               </Tarefa>
+              <button type="button" onClick={() => this.removerTarefa(tarefa.id)}>Apagar</button>
+              </LinhaDeTarefa>
             )
           })}
+          
         </TarefaList>
+      
+         
       </div>
     )
   }
