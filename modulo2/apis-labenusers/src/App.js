@@ -49,7 +49,7 @@ class App extends React.Component {
           {headers: {Authorization: "ana-sammi-vaughan"}}
       )
       .then((response) => {
-        alert("Usuário criado com sucesso")
+        alert(`Usuário ${this.state.inputNome} criado com sucesso`)
         this.setState({inputNome: ""})
         this.setState({inputEmail: ""})
         this.getAllUsers()
