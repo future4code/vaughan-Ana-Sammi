@@ -1,93 +1,45 @@
 import React from 'react'
 import axios from 'axios'
-
+import Cadastro from './pages/Cadastro.js'
+import Busca from './pages/Busca.js'
+import Detalhe from './pages/Detalhe.js'
 
 
 class App extends React.Component {
   state={
-    usuarios:[],
-    inputNome: "",
-    inputEmail: ""
+    telaAtual: "cadastro",
   }
 
-  componentDidMount() {
-    this.getAllUsers()
-  }
-
-  handleInputNome = (event) => {
-    this.setState({inputNome: event.target.value})
-  }
-
-  handleInputEmail = (event) => {
-    this.setState({inputEmail: event.target.value})
-  }
-
-  getAllUsers = () => {
-    axios.get(
-      "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-      {headers: {Authorization: "ana-sammi-vaughan"}}
-    )
-    .then((response) => {
-      this.setState({usuarios:response.data.result.list})
-      console.log(response.data.result.list)
-    })
-    .catch((error) => {
-      console.log(error.response)
-    })
-  }
-
-
-  createUser = () => {
-    const body = {
-      "name": this.state.inputNome,
-      "email": this.state.inputEmail
+  alternaTelas = () => {
+    switch (this.state.telaAtual) {
+      case "cadastro":
+        return <Cadastro irParaBusca={this.irParaBusca} />
+      case "busca":
+        return <Busca irParaCadastro={this.irParaCadastro} irParaDetalhe={this.irParaDetalhe} />
+      case "detalhe":
+        return <Detalhe irParaDetalhe={this.irParaDetalhe} irParaBusca={this.irParaBusca} />
+      default:
+        return <div>Erro! Página não encontrada!</div>
     }
-        
-    axios
-      .post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", 
-          body,
-          {headers: {Authorization: "ana-sammi-vaughan"}}
-      )
-      .then((response) => {
-        alert(`Usuário ${this.state.inputNome} criado com sucesso`)
-        this.setState({inputNome: ""})
-        this.setState({inputEmail: ""})
-        this.getAllUsers()
+  }
 
-      })
-      .catch((error) => {
-        console.log(error.response)
-        alert("Erro ao criar usuário")
-      })
+  irParaCadastro = () => {
+    this.setState({telaAtual: "cadastro"})
+  }
+
+  irParaBusca = () => {
+    this.setState({telaAtual: "busca"})
+  }
+
+  irParaDetalhe = () => {
+    this.setState({telaAtual: "detalhe"})
   }
 
 
   render() {
-    const listUsers = this.state.usuarios.map((usuario) => {
-      return (
-        <div>
-          {usuario.name}
-          {usuario.email}
-        </div>
-      )
-
-    })
-    console.log("estado:", this.state)
     return (
       <div>
-        <input 
-          
-          placeholder="Nome do usuário"
-          value={this.state.inputNome}
-          onChange={this.handleInputNome} 
-        />
-        <input 
-          placeholder="E-mail do usuario"
-          value={this.state.inputEmail}
-          onChange={this.handleInputEmail} 
-        />
-        <button onClick={this.createUser}>Criar usuário</button>
-        {listUsers}
+       {this.alternaTelas()}
       </div>
     );
   }
