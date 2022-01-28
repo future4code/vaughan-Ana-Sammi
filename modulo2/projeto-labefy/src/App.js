@@ -38,18 +38,18 @@ class App extends React.Component {
 };
 
 
-  deletePlaylist = (id) => {
-    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`
-    const auth = {headers: {Authorization: "ana-sammi-vaughan"}}
-    .del(url, auth)
-    .then((response) => {
-      console.log(response)
-      this.getAllPlaylists()
-    })
-    .catch((error) => {
-      console.log(error.response.data.message)  
-    })
-  }
+  // deletePlaylist = (id) => {
+  //   const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`
+  //   const auth = {headers: {Authorization: "ana-sammi-vaughan"}}
+  //   .del(url, auth)
+  //   .then((response) => {
+  //     console.log(response)
+  //     this.getAllPlaylists()
+  //   })
+  //   .catch((error) => {
+  //     console.log(error.response.data.message)  
+  //   })
+  // }
 
 
   render() {

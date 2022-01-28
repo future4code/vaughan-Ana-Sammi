@@ -6,7 +6,7 @@ export default class Playlist extends React.Component {
         playlists: [],
         // inputPlaylist: ""
     }
-
+    // labefy-ana-sammi.surge.sh
     componentDidMount() {
         this.getAllPlaylists()
     }
@@ -24,10 +24,11 @@ export default class Playlist extends React.Component {
             })
     }
 
-    deletePlaylist = (playlistId) => {
-        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlistId}`
+    deletePlaylist = (id) => {
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`
         const auth = { headers: { Authorization: "ana-sammi-vaughan" } }
-            .del(url, auth)
+        axios
+            .delete(url, auth)
             .then((response) => {
                 console.log(response)
                 this.getAllPlaylists()
@@ -36,6 +37,7 @@ export default class Playlist extends React.Component {
                 console.log(error.response.data.message)
             })
     }
+
 
     render() {
         const listaPlaylists = this.state.playlists.map((playlist) => {
