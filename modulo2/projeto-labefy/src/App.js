@@ -2,12 +2,15 @@ import React from 'react'
 import axios from 'axios'
 import { render } from 'react-dom'
 import Playlist from './pages/Playlist.js'
+import Tracks from './pages/Tracks'
 
 
 class App extends React.Component {
   state = {
     playlists: [], 
-    inputPlaylist:""   
+    inputPlaylist:"",
+    currentScreen: "playlists"   
+
   }
 
   // componentDidMount(){
@@ -37,19 +40,24 @@ class App extends React.Component {
     })
 };
 
+changeScreen = () => {
+  switch (this.state.currentScreen) {
+      case "playlists":
+          return <Playlist goToTracks={this.goToTracks}/>
+      case "tracks":
+          return <Tracks goToPlaylist={this.goToPlaylist}/>
+      default:
+          return <div>"Erro! Página não encontrada</div>
+  }
+}
 
-  // deletePlaylist = (id) => {
-  //   const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`
-  //   const auth = {headers: {Authorization: "ana-sammi-vaughan"}}
-  //   .del(url, auth)
-  //   .then((response) => {
-  //     console.log(response)
-  //     this.getAllPlaylists()
-  //   })
-  //   .catch((error) => {
-  //     console.log(error.response.data.message)  
-  //   })
-  // }
+goToPlaylist = () => {
+  this.setState({currentScreen: "playlists"})
+}
+
+goToTracks = () => {
+  this.setState({currentScreen: "tracks"})
+}
 
 
   render() {
@@ -63,7 +71,8 @@ class App extends React.Component {
           onChange={this.handleInput}
         />
         <button onClick={this.createPlaylist}>Criar playlist</button>
-        <Playlist/>
+        {this.changeScreen()}
+        
       </div>
     )
   }
