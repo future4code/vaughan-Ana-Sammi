@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState }  from "react";
 import "./styles.css";
 import axios from "axios";
 import PokeCard from "./components/PokeCard/PokeCard";
@@ -6,22 +6,25 @@ import PokeCard from "./components/PokeCard/PokeCard";
 function App() {
   const [pokeList, setPokeList] = useState([])
   const [pokeName, setPokeName] = useState("")
- 
-  const mudarPokeName = (event) => {
-    setPokeName(event.target.value)
-  }
 
- useEffect (() => {
+ const pegarPokemons = () => {
   axios
   .get("https://pokeapi.co/api/v2/pokemon/?limit=151")
   .then(response => {
-    setPokeList(pokeList = response.data.results)
+    console.log(response.data)
+    setPokeList(response.data.results)
   })
   .catch(err => {
     console.log(err);
-  }), []
- })
- 
+  })
+}
+
+useEffect(() => {pegarPokemons()}, [])
+
+const mudarPokeName = (event) => {
+  setPokeName(event.target.value)
+}
+
 
     return (
       <div className="App">
