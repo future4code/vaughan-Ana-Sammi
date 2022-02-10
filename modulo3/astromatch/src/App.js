@@ -1,42 +1,36 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
-import styled from 'styled-components'
+import React, {useState} from 'react'
+import Matches from './pages/Matches'
+import InitialPage from './pages/InitialPage'
+
 
 function App() {
-  const [nome, setNome] = useState('')
-  const [idade, setIdade] = useState('')
-  const [foto, setFoto] = useState('')
-  const [bio, setBio] = useState('')
-
-  const aluno = 'ana'
-
-  useEffect(() => {
-    getProfile(aluno)
-  }, [])
-
-  const getProfile = (ana) => {
-    const url = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${ana}/person`
-    axios.get(url)
-    .then((res) => {
-      setNome(res.data.profile.name)
-      setIdade(res.data.profile.age)
-      setFoto(res.data.profile.photo)
-      setBio(res.data.profile.bio)
-    })
-    .catch((erro) => console.log(erro.response))
-  }
+  const [page, setPage] = useState('home')
 
   
+  const switchPage =() => {
+    switch(page) {
+      case "home":
+        return <InitialPage goToMatch={goToMatch}/>
+      case "matches":
+        return <Matches goHome={goHome}/>
+      default:
+        return <InitialPage goToMatch={goToMatch}/>
+  }}
+ 
+
+  const goToMatch = () => {
+    setPage("matches")
+  }
+
+
+  const goHome = () => {
+    setPage("home")
+  }
+
 
   return (
     <div className="App">
-      <h1>Astromatch</h1>
-      <div>
-        <h3> {nome} </h3>
-        <p>{idade}</p>
-        <img src={foto} alt={"Foto de perfil"}/>
-        <p>{bio}</p>
-      </div>
+      {switchPage()}
     </div>
   );
 }
