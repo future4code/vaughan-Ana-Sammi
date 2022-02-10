@@ -17,10 +17,10 @@ export default function Matches(props) {
         axios.get(`${baseUrl}/${aluno}/matches`)
         .then((response) => {
             setMatches(response.data.matches)
-            console.log(matches)
+            
         })
         .catch((error) => {
-            console.log(error.response)
+            alert("Você ainda não tem nenhum match! Continue tentando!")
         })
     }
 

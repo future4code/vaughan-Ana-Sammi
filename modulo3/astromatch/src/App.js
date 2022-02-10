@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import Matches from './pages/Matches'
 import InitialPage from './pages/InitialPage'
+import { GlobalStyle } from './constants/style'
+
 
 
 function App() {
@@ -29,9 +31,12 @@ function App() {
 
 
   return (
+    
     <div className="App">
       {switchPage()}
+      <GlobalStyle/>
     </div>
+    
   );
 }
 

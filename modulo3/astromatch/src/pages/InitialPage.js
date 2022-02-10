@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {aluno, baseUrl} from '../constants/constants'
-import {ProfileCard} from '../constants/style'
+import {ProfileCard, CardNome, ProfilePhoto, LikeButton, NoButton, IconDislike, Heart} 
+from '../constants/style'
+
 
 
 export default function InitialPage(props) {
@@ -41,36 +43,39 @@ export default function InitialPage(props) {
     .then((res) => {
       setChoice(true)
       getProfile(aluno)
-      console.log("funcionou", choice)
+      if(res.data.isMatch === true) {
+        alert(`Você deu um match com ${nome}!`)
+      }
     })
-    .catch((error) => {
-      console.log("ahhhhh", error.response)
-    })
+    .catch((error) => {})
   }
 
 
   const clearProfiles = () => {
     axios.put(`${baseUrl}/${aluno}/clear`)
-    .then((res) => {
-      console.log(res.data)
-    })
-    .catch((error) => {
-      console.log("erro", error.response)
-    })
+    .then((res) => {}) 
+    .catch((error) => {})
   }
 
 
   return (
-    <div className="App">
-      <h1>Astromatch</h1>
-      <ProfileCard>
-        <img src={foto} alt={"Foto de perfil"}/>
-        <h3> {nome}, {idade} </h3> 
-        <p>{bio}</p>
-        <button onClick={choosePerson}>LIKE</button>
-        <button onClick={getProfile}>DISLIKE</button>
+    <div>
+
+      
+
+      <ProfileCard >
+        <h1> Astromatch </h1>
+        <button onClick={props.goToMatch}> Meus Matches </button>
+        <ProfilePhoto src={foto} alt={"Foto de perfil"}/>
+        <CardNome>
+          <h3> {nome}, {idade} </h3> 
+          <p>{bio}</p>
+        </CardNome>
+        <LikeButton onClick={choosePerson}><Heart/></LikeButton>
+        <NoButton onClick={getProfile}> <IconDislike/> </NoButton>
       </ProfileCard>
-      <button onClick={props.goToMatch}> Meus Matches </button>
+
+      
       <button onClick={clearProfiles}>LIMPAR</button>
     </div>
   );
