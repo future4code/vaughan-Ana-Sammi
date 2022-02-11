@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
     body {
-    background-image: linear-gradient(to right top, #f45ed4, #d981dc, #c499da, #b9abcd, #b9b9b9);
+    background-image: linear-gradient(to right top, #ff521b, #ff693b, #fc9e4f, #ff693b, #ff521b);
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const ProfileCard = styled.div`
+    border-radius: 5%;
     color: #2f2f2f;   
     font-family: sans-serif;
     display: flex;
@@ -29,13 +30,13 @@ export const ProfileCard = styled.div`
     justify-content: space-between;
     height: 700px;
     width: 420px;
-    background-color: #e3d7e9;
+    background-color: black;
     border: 1px solid black;
     position:relative;
-    -webkit-box-shadow: 5px 5px 10px #9b3a86;
+    -webkit-box-shadow: 5px 5px 10px #a1201b;
     h1 {
         font-size: 72px;
-        background: -webkit-linear-gradient(#f45ed4, #979797);
+        background: -webkit-linear-gradient(#ff521b, #979797);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         
@@ -65,30 +66,33 @@ export const CardNome = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     h3 {
-        color: #f45ed4;
+        color: #ff521b;
         font-size: 1.8rem;
-        text-shadow: 1px 1px #000000
+        text-shadow: 1px 1px black;
     }
     p{
         font-size: 1.2rem;
         color: white;
-        margin-top: 5px;
+        margin: 5px;
         text-shadow: 1.2px 1.2px black
     }
 `
 export const Heart = styled(GiHearts)`
-    color: #0c7047;
-    width: 50px;
-    height: 50px;
+    color: #00ff55;
+    width: 100px;
+    height: 40px;
+    border-radius: 10%;
     :hover {
         cursor: pointer;
-        width: 55px;
-        height: 55px;
+        width: 105px;
+        height: 45px;
     }
     padding: 5px;
-  /* border: 1px #9b3a86 solid; */
-  border-radius: 50%;
-  background-color: #5af88f;
+  background-color: #01551a;
+  padding: 10px;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
 `
 
 
