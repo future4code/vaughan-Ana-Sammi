@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, {createGlobalStyle} from 'styled-components'
-import {GiHearts} from 'react-icons/gi'
+import {RiHeartsLine} from 'react-icons/ri'
+import {BsHandThumbsDown, BsHandThumbsUp} from 'react-icons/bs'
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -15,39 +16,44 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: sans-serif;
+        &::-webkit-slider-thumb {
+     -webkit-appearance: none;
+     width: 10px;
+     height: 15px;
     }
+}    
 
 `
 
 export const ProfileCard = styled.div`
     border-radius: 5%;
     color: #2f2f2f;   
-    font-family: sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: space-between;
-    height: 700px;
-    width: 420px;
+    height: 80vh;
+    width: 25vw;
     background-color: black;
     border: 1px solid black;
     position:relative;
     -webkit-box-shadow: 5px 5px 10px #a1201b;
     h1 {
-        font-size: 72px;
-        background: -webkit-linear-gradient(#ff521b, #979797);
+        font-size: 2rem;
+        background: -webkit-linear-gradient(#ff521b, #ffee00);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        margin-top: 2%;
         
-}
-   
+} 
 `
 export const ProfilePhoto = styled.img `
     position: absolute;
-    top: 100px;
-    width: 400px;
-    height: 450px;
+    top: 9%;
+    width: 90%;
+    height: 70%;
     object-fit: cover;
     object-position: 50% 10%;
 `
@@ -55,9 +61,9 @@ export const ProfilePhoto = styled.img `
 export const CardNome = styled.div`
     background-image: linear-gradient(to top, black, transparent);
     position: absolute;
-    bottom: 21%;
-    width: 400px;
-    height: 90px;
+    bottom: 20%;
+    width: 90%;
+    height: 20%;
     z-index: 1;
     text-align: left;
     backdrop-filter: blur(6px);
@@ -77,62 +83,102 @@ export const CardNome = styled.div`
         text-shadow: 1.2px 1.2px black
     }
 `
-export const Heart = styled(GiHearts)`
+
+export const Buttons = styled.div`
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    button {
+        background: transparent;
+        border: none !important;
+        font-size:0;
+    }
+    margin-bottom: 10%;
+`
+
+export const Like = styled(BsHandThumbsUp)`
     color: #00ff55;
-    width: 100px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 10%;
     :hover {
         cursor: pointer;
-        width: 105px;
-        height: 45px;
+        width: 70px;
+        height: 70px;
     }
-    padding: 5px;
-  background-color: #01551a;
-  padding: 10px;
-  position: absolute;
-  bottom: 40px;
-  right: 40px;
+
 `
 
+export const Dislike = styled(BsHandThumbsDown)`
+    color: #ff1616;
+    width: 60px;
+    height: 60px;
+    :hover {
+        cursor: pointer;
+        width: 70px;
+        height: 70px;
+    }
+    padding: 0;
+    margin: 0;
 
-    
 
-
-export const IconDislike = styled.img`
-    width: 65px;
-    height: 65px;
+`
+export const Matches = styled(RiHeartsLine)`
+color: #00a2ff;
+    width: 60px;
+    height: 60px;
     :hover {
         cursor: pointer;
         width: 70px;
         height: 70px;
     }
 `
-export const LikeButton = styled.button`
-    border: 1px black;
-    border-radius: 50%;
-    background-color: #e3d7e9;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+export const MatchesCard = styled.div `
+    border-radius: 5%;
+    color: #2f2f2f;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    height: 80vh;
+    width: 25vw;
+    background-color: black;
+    border: 1px solid black;
+    position:relative;
+    -webkit-box-shadow: 5px 5px 10px #a1201b;
+    padding: 1rem;
+    overflow: scroll;
+    ::-webkit-scrollbar-track {
+        background-color: #e4e4e4;
+        border-radius: 100px;
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+        background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+        box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+    }
 `
-export const NoButton = styled.button`
-    border: none;
-    border-radius: 50%;
-    background-color: #e3d7e9;
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-`
-
-export const MatchCard = styled.div`
+export const MatchPerson = styled.div`
     img {
         border-radius: 50%;
-        height: 50px;
-        width: 50px;
-        margin-right: 2%;
+        height: 4rem;
+        width: 4rem;
+        object-fit: cover;
+        object-position: 50% 10%;
+        border: 2px #fc9e4f solid;
+    }
+    p {
+        width: 30%;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fc9e4f;
     }
     display: flex;
-    border: 1px black solid;
     padding: 1%;
+    width: 95%;
+    justify-content: space-evenly;
+    align-items: center;
+    
 `

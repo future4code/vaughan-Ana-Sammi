@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {aluno, baseUrl} from '../constants/constants'
-import { MatchCard } from '../constants/style'
+import { MatchPerson, MatchesCard } from '../constants/style'
 
 
 export default function Matches(props) {
@@ -26,18 +26,21 @@ export default function Matches(props) {
 
     const personData = matches.map((person) => {
         return (
-            <MatchCard>
+            <MatchPerson key={person.id}>
                 <img src={person.photo} alt={"Foto de perfil"}/>
                 <p>{person.name}</p>
-            </MatchCard>
+            </MatchPerson>
         )
     })
   
 
     return (
         <div>
-            {personData}           
-            <button onClick={props.goHome}>Voltar</button>
+            <MatchesCard>
+                {personData}           
+                <button onClick={props.goHome}>Voltar</button>
+            </MatchesCard>
+            
         </div>
         
     )
