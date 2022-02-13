@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import Matches from './pages/Matches'
-import InitialPage from './pages/InitialPage'
-import { GlobalStyle } from './constants/style'
+import Matches from './pages/Matches/Matches'
+import InitialPage from './pages/InitialPage/InitialPage'
+import { GlobalStyle } from './pages/InitialPage/initialPageStyle'
 
 
 

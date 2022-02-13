@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-import {aluno, baseUrl} from '../constants/constants'
-import { MatchPerson, MatchesCard } from '../constants/style'
+import {aluno, baseUrl} from '../../constants/constants'
+import { MatchPerson, MatchesCard, BackButton, DeleteButton, MatchesButtons, Message } 
+    from './matchesStyle'
 
 
 export default function Matches(props) {
@@ -29,16 +30,33 @@ export default function Matches(props) {
             <MatchPerson key={person.id}>
                 <img src={person.photo} alt={"Foto de perfil"}/>
                 <p>{person.name}</p>
+                <Message/>
             </MatchPerson>
         )
     })
+
+    const clearProfiles = () => {
+        axios.put(`${baseUrl}/${aluno}/clear`)
+          .then((res) => {
+            window.confirm("Você tem certeza que deseja deletar seus matches?")
+            getMatches()
+            })
+          .catch((error) => { })
+      }
   
 
     return (
         <div>
             <MatchesCard>
-                {personData}           
-                <button onClick={props.goHome}>Voltar</button>
+                <MatchesButtons>
+                    <button onClick={props.goHome}><BackButton/></button>
+                    <h3>Meus Matches</h3>
+                    <button onClick={clearProfiles}> <DeleteButton/> </button>
+                </MatchesButtons>       
+                {personData} 
+    
+                 
+                
             </MatchesCard>
             
         </div>

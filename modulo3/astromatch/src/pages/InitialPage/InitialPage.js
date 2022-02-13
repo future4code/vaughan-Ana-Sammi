@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { aluno, baseUrl } from '../constants/constants'
+import { aluno, baseUrl } from '../../constants/constants'
 import { ProfileCard, CardNome, ProfilePhoto, Dislike, Like, Matches, Buttons }
-  from '../constants/style'
+  from '../InitialPage/initialPageStyle'
 
 
 
 export default function InitialPage(props) {
   const [profile, setProfile] = useState({})
-  const [choice, setChoice] = useState('false')
 
 
   useEffect(() => {
@@ -42,18 +41,15 @@ export default function InitialPage(props) {
   }
 
 
-  const clearProfiles = () => {
-    axios.put(`${baseUrl}/${aluno}/clear`)
-      .then((res) => { })
-      .catch((error) => { })
-  }
+  // const clearProfiles = () => {
+  //   axios.put(`${baseUrl}/${aluno}/clear`)
+  //     .then((res) => { })
+  //     .catch((error) => { })
+  // }
 
 
   return (
     <div>
-
-
-
       <ProfileCard >
         <h1> Astromatch </h1>
         <ProfilePhoto src={profile.photo} alt={"Foto de perfil"} />
@@ -69,7 +65,7 @@ export default function InitialPage(props) {
       </ProfileCard>
 
 
-      <button onClick={clearProfiles}>LIMPAR</button>
+      {/* <button onClick={clearProfiles}>LIMPAR</button> */}
     </div>
   );
 }
