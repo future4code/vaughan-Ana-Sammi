@@ -1,8 +1,19 @@
 import react from 'react'
 import axios from 'axios'
-// import {} from '../constants/style'
+import { useNavigate, useParams } from "react-router-dom";
+
 
 export default function ApplicationFormPage() {
+    const navigate = useNavigate()
+
+    const goToHome = () => {
+        navigate(-2)
+    }
+
+    const goBack = () => {
+        navigate(-1)
+    }
+
     return (
         <div>
            <h2>Formulário de aplicação</h2>
@@ -11,7 +22,9 @@ export default function ApplicationFormPage() {
                do
                formulario
            </form>
-           <button>Enviar</button>
+           <button type="submit">Enviar</button>
+           <button onClick={goToHome}>Voltar para home page</button>
+           <button onClick={goBack}>Voltar para viagens</button>
         </div>
     )
 }
