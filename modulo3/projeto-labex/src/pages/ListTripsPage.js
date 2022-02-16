@@ -1,26 +1,55 @@
-import react from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import {CardTrip} from '../constants/style'
-import { useNavigate, useParams } from "react-router-dom";
+import { CardTrip, ContainerList } from '../constants/style'
+import { urlBase } from '../constants/constantes';
+import { useNavigate} from "react-router-dom";
 
 export default function ListTripsPage() {
-    const navigate = useNavigate()
+    const [trips, setTrips] = useState([]);
+
+    useEffect(() => {
+        getTrips()
+    }, [])
+
+    const navigate = useNavigate();
 
     const goToApplication = () => {
         navigate("/trips/application")
-    }
+    };
 
     const goBack = () => {
         navigate(-1)
+    };
+
+    const getTrips = () => {
+        axios.get(`${urlBase}/trips`)
+        .then((res) => {
+            setTrips(res.data.trips)
+            console.log(res.data.trips)
+        })
+        .catch((err) => {
+            console.log(err.response)
+        })
     }
+
+
+    const tripData = trips.map((trip) => {
+        return (
+            <CardTrip>
+                <h4>{trip.name}</h4>
+                <p>Planeta:{trip.planet}</p>
+                <p>Duração: {trip.durationInDays}</p>
+                <p>Descrição: {trip.description}</p>
+            </CardTrip>
+        )
+    })
+
     return (
-        <div>
-           <h2>Lista de viagens</h2>
-           <CardTrip>
-                viagem para a lua
-           </CardTrip>
-           <button onClick={goToApplication}>Inscrever-se para uma viagem</button>
+        <ContainerList>
+           <h2>Viagens Disponíveis</h2>
+            {tripData}
+           <button id={trips.id} onClick={goToApplication}>Inscrever-se para uma viagem</button>
            <button onClick={goBack}>Voltar</button>
-        </div>
+        </ContainerList>
     )
 }

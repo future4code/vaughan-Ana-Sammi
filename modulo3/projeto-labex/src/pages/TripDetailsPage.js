@@ -1,7 +1,13 @@
-import react from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
+import { urlBase } from '../constants/constantes';
+import axios from 'axios'
 
 export default function TripDetailsPage() {
+    const [tripDetail, setTripDetail] = useState({})
+
+    const token = window.localStorage.getItem('token')
+
     const navigate = useNavigate()
 
     const goToLogin = () => {
@@ -10,21 +16,23 @@ export default function TripDetailsPage() {
     const goBack = () => {
         navigate(-1) }
 
+    useEffect(() => {
+        axios.get(`${urlBase}/trip/NajS8OmMS0AMmcsLciq7`, { 
+            headers: { 
+                auth: token }})
+        .then((res) => {
+            console.log(res.data.trip)
+           
+        })
+        .catch((err) => {
+            console.log(err.response)
+        })
+    }, [])
+    
+
+
     return (
         <div>
-            <h2>Nome da viagem</h2>
-            <div>
-                descrição da viagem
-            </div>
-            <div>
-               card de candidatos pendentes
-               <button>aprovar</button>
-               <button>reprovar</button>
-            </div>
-            <h4>Candidatos aprovados</h4>
-            <ul>
-                <li>nome dos aprovados</li>
-            </ul>
             <button onClick={goToLogin}>logout</button>
             <button onClick={goBack}>Voltar</button>
         </div>

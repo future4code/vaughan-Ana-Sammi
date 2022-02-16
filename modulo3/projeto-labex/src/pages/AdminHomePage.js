@@ -13,8 +13,7 @@ export default function AdminHomePage() {
     const goToDetail = () => {
         navigate('/admin/trips/details') }
     
-    
-    
+
 
     return (
         <div>
@@ -22,7 +21,7 @@ export default function AdminHomePage() {
             <button onClick={goBack}>voltar</button>
             <button onClick={goToCreate}>criar viagem</button>
             <button onClick={goBack}>logout</button>
-            <button onClick={goToDetail}>Card de cada viagem</button>
+            <button onClick={goToDetail}>Detalhes das viagens</button>
         </div>
     )
 }

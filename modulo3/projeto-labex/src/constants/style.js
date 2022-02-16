@@ -43,7 +43,35 @@ export const ButtonLogin = styled.button`
 
 /* Lista de viagens */
 export const CardTrip = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     width: 20rem;
-    height: 15rem;
-    background-color: white;
+    height: 12rem;
+    border: 1px solid red;
+    color: white;
+    h4 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    p {
+        margin-bottom: 0.5rem;
+    }
+    padding: 3%;
+    text-align: center;
+`
+
+export const ContainerList = styled.div`
+    display: grid;
+    grid-template: 20% 1fr 1fr 1fr / 1fr 1fr;
+    h2 {
+        font-size: 2rem;
+        grid-row:1 / 2;
+        grid-column: 1/3;
+    }
+    align-items: center;
+    justify-items: center;
+    div {
+        margin-bottom: 2%;
+    }
 `
