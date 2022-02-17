@@ -7,11 +7,7 @@ import {Form, ContainerForm} from '../constants/style'
 
 
 export default function ApplicationFormPage(props) {
-    const [name, setName] = useState('')
-    const [age, setAge] = useState('')
-    const [appText, setAppText] = useState('')
-    const [profession, setProfession] = useState('')
-    const [country, setCountry] = useState('')
+    const [form, setForm] = useState({name:"", age:"", appText:"", profession:"", country:""})
     const navigate = useNavigate()
 
     const goToHome = () => {
@@ -22,33 +18,15 @@ export default function ApplicationFormPage(props) {
         navigate(-1)
     }
 
-    const onChangeName = (e) => {
-        setName(e.target.value)
-    }
+    const onChange = (event) => {
+        const {name, value} = event.target
+        setForm({...form, [name]: value})
+    };
 
-    const onChangeAge = (e) => {
-        setAge(e.target.value)
-    }
 
-    const onChangeAppText = (e) => {
-        setAppText(e.target.value)
-    }
-    const onChangeProfession = (e) => {
-        setProfession(e.target.value)
-    }
-    const onChangeCountry = (e) => {
-        setCountry(e.target.value)
-    }
-
-    const applyToTrip = (id) => {
-        const body = {
-            name: name,
-            age: age,
-            applicationText: appText,
-            profession: profession,
-            country: country
-        }
-        axios.post(`${urlBase}/${id}/apply`, body)
+    const applyToTrip = (id, event) => {
+        event.preventDefault()
+        axios.post(`${urlBase}/${id}/apply`, form)
         .then((res) => {
             console.log(res.data)
         })
@@ -62,16 +40,41 @@ export default function ApplicationFormPage(props) {
     return (
         <ContainerForm>
            <h2>Formulário de aplicação</h2>
-           <Form>
-                <input type="text" onChange={onChangeName} placeholder="Nome"/>
-                <input onChange={onChangeAge} placeholder="Idade"/>
-                <input onChange={onChangeAppText} placeholder="Application text"/>
-                <input onChange={onChangeProfession} placeholder="Profissão"/>
+           <Form onSubmit={applyToTrip}>
+                <input
+                    name="name"
+                    value={form.name} 
+                    type="text" 
+                    onChange={onChange} 
+                    placeholder="Nome"
+                />
+                <input 
+                    name="age"
+                    value={form.age}
+                    type="text" 
+                    onChange={onChange} 
+                    placeholder="Idade"
+                />
+                <textarea
+                    name="appText"
+                    value={form.appText}
+                    type="text" 
+                    onChange={onChange} 
+                    placeholder="Application text"
+                />
+                <input 
+                    name="profession"
+                    value={form.profession}
+                    type="text" 
+                    onChange={onChange}
+                    placeholder="Profissão"
+                />
                 <CountrySelector/>
+                <button type="submit">Enviar</button>
            </Form>
-           <button type="submit">Enviar</button>
-           <button onClick={goToHome}>Voltar para home page</button>
-           <button onClick={goBack}>Voltar para viagens</button>
+           
+           <button onClick={goToHome}> Voltar para home page </button>
+           <button onClick={goBack}> Voltar para viagens </button>
         </ContainerForm>
     )
 }

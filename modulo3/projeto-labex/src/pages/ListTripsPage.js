@@ -39,6 +39,7 @@ export default function ListTripsPage() {
                 <p>Planeta:{trip.planet}</p>
                 <p>Duração: {trip.durationInDays}</p>
                 <p>Descrição: {trip.description}</p>
+                <p>Data: {trip.date} </p>
             </CardTrip>
         )
     })
@@ -47,7 +48,10 @@ export default function ListTripsPage() {
         <ContainerList>
            <h2>Viagens Disponíveis</h2>
             {tripData}
-           <button id={trips.id} onClick={goToApplication}>Inscrever-se para uma viagem</button>
+           <button 
+            tripData={tripData} 
+            onClick={goToApplication}
+            >Inscrever-se para uma viagem</button>
            <button onClick={goBack}>Voltar</button>
         </ContainerList>
     )

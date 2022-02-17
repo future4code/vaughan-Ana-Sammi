@@ -19,7 +19,7 @@ export default function Router() {
             <Route exact path='/login' element={<LoginPage/>}/>
             <Route exact path='/admin/:id' element={<AdminHomePage/>}/>
             <Route exact path='/admin/trips/create' element={<CreateTripPage/>}/>
-            <Route exact path='/admin/trips/details' element={<TripDetailsPage/>}/>
+            <Route path='/admin/trips/details/:id' element={<TripDetailsPage/>}/>
         </Routes>
     </BrowserRouter>
   );

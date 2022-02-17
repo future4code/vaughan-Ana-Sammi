@@ -22,17 +22,25 @@ export const Container = styled.div`
     text-align: center;
     h1 {
         font-size: 4rem;
-        opacity: 80%;
+        opacity: 70%;
         color: white;
         margin-bottom: 2rem;
     }
 
 `
+
 export const ButtonList = styled.button`
     height: 2rem;
     width: 9rem;
+    background-color: transparent;
+    color: white;
+    opacity: 70%;
+    border: 2px white solid;
+    font-size: 1.2rem;
+    border-radius: 5%;
 
 `
+
 export const ButtonLogin = styled.button`
     position: absolute;
     top: 2rem;
@@ -76,14 +84,15 @@ export const ContainerList = styled.div`
     }
 `
 
-// FORMULÁRIO DE APLICAÇÃO
+// Formulário de aplicação
 
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 100%;
     height: 40vh;
     justify-content: space-evenly;
+    align-items: center;
 `
 
 export const ContainerForm = styled.div`
@@ -92,4 +101,7 @@ export const ContainerForm = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    button {
+        width:30%;
+    }
 `

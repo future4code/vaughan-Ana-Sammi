@@ -2,10 +2,10 @@ import React, {useState} from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import {urlBase} from '../constants/constantes'
 import axios from 'axios'
+import {Form, ContainerForm} from '../constants/style'
 
 export default function LoginPage() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [form, setForm] = useState({email:"", password:""})
     const navigate = useNavigate()
     const pathParams = useParams()
     const id = pathParams.id
@@ -18,20 +18,15 @@ export default function LoginPage() {
         navigate('/')
     };
 
-    const onChangeEmail = (e) => {
-        setEmail(e.target.value)
+
+    const onChange = (event) => {
+        const {name, value} = event.target
+        setForm({...form, [name]: value})
     };
 
-    const onChangePassword = (e) => {
-        setPassword(e.target.value)
-    };
-
-    const onSubmitLogin = () => {
-        const body = {
-            email: email,
-            password: password
-        }
-        axios.post(`${urlBase}/login`, body)
+    const onSubmitLogin = (event) => {
+        event.preventDefault()
+        axios.post(`${urlBase}/login`, form)
         .then((res) => {
             window.localStorage.setItem('token', res.data.token)
             if (res.data.success) {
@@ -39,27 +34,37 @@ export default function LoginPage() {
             } 
         })
         .catch((err) => {
-            console.log(err.response)
+            alert("Verifique seu e-mail e senha")
         })
     }
 
     return (
         <div>
             <h2>Login</h2>
-            <input 
-                placeholder="E-mail"
-                type="email"
-                value={email}
-                onChange={onChangeEmail}
-            />
-            <input 
-                placeholder="Senha"
-                type="password"
-                value={password}
-                onChange={onChangePassword}
-            />
 
-            <button type="submit" onClick={onSubmitLogin}>Login</button>
+            <form onSubmit={onSubmitLogin}>
+                <input 
+                    name="email"
+                    placeholder="E-mail"
+                    type="email"
+                    value={form.email}
+                    onChange={onChange}
+                    required
+                />
+                <input 
+                    name="password"
+                    placeholder="Senha"
+                    type="password"
+                    value={form.password}
+                    onChange={onChange}
+                    required
+                    pattern={"^.{3,}"}
+                    title={"A senha deve ter no mínimo 3 caracteresf"}
+                />
+
+                <button type="submit">Login</button>
+            </form>
+            
             <button onClick={goBack}>voltar</button>
         </div>
     )
