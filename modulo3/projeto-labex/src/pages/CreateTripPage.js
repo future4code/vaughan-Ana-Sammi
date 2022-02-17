@@ -1,7 +1,10 @@
-import react from 'react'
+import React from 'react'
 import { useNavigate, useParams } from "react-router-dom";
+import {useProtectedPage} from '../constants/constantes'
 
 export default function CreateTripPage() {
+    useProtectedPage();
+    
     const navigate = useNavigate()
 
     const goBack = () => {

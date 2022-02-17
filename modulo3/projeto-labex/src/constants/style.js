@@ -75,3 +75,21 @@ export const ContainerList = styled.div`
         margin-bottom: 2%;
     }
 `
+
+// FORMULÁRIO DE APLICAÇÃO
+
+export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 40vh;
+    justify-content: space-evenly;
+`
+
+export const ContainerForm = styled.div`
+    margin-top: 4%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`

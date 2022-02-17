@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, useParams } from "react-router-dom";
-import { urlBase } from '../constants/constantes';
+import { useNavigate } from "react-router-dom";
+import { urlBase, useProtectedPage, token } from '../constants/constantes';
 import axios from 'axios'
 
 export default function TripDetailsPage() {
-    const [tripDetail, setTripDetail] = useState({})
+    useProtectedPage()
 
-    const token = window.localStorage.getItem('token')
+    // const [trip, setTrip] = useState({})
 
+    useEffect(() => {
+        getTripDetails()}, [] )
+        
     const navigate = useNavigate()
 
     const goToLogin = () => {
@@ -16,24 +19,31 @@ export default function TripDetailsPage() {
     const goBack = () => {
         navigate(-1) }
 
-    useEffect(() => {
-        axios.get(`${urlBase}/trip/NajS8OmMS0AMmcsLciq7`, { 
+    const getTripDetails = (id) => {
+        axios.get(`${urlBase}/trip/id`, { 
             headers: { 
                 auth: token }})
         .then((res) => {
-            console.log(res.data.trip)
-           
+            console.log(res.data.trip)    
         })
         .catch((err) => {
             console.log(err.response)
         })
-    }, [])
-    
+    }
 
-
+    // const tripDetail = trip.map((item) => {
+    //     return (
+    //         <div>
+    //             {item.name}
+    //         </div>
+    //     )
+    // })
+ 
     return (
         <div>
-            <button onClick={goToLogin}>logout</button>
+            {/* {tripDetail} */}
+            VIAGENS
+            <button onClick={goToLogin}>Logout</button>
             <button onClick={goBack}>Voltar</button>
         </div>
     )

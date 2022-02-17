@@ -15,7 +15,7 @@ export default function LoginPage() {
     };
 
     const goBack = () => {
-        navigate(-1)
+        navigate('/')
     };
 
     const onChangeEmail = (e) => {

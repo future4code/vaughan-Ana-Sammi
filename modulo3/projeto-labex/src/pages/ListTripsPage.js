@@ -25,7 +25,6 @@ export default function ListTripsPage() {
         axios.get(`${urlBase}/trips`)
         .then((res) => {
             setTrips(res.data.trips)
-            console.log(res.data.trips)
         })
         .catch((err) => {
             console.log(err.response)
@@ -35,7 +34,7 @@ export default function ListTripsPage() {
 
     const tripData = trips.map((trip) => {
         return (
-            <CardTrip>
+            <CardTrip key={trip.id}>
                 <h4>{trip.name}</h4>
                 <p>Planeta:{trip.planet}</p>
                 <p>Duração: {trip.durationInDays}</p>
