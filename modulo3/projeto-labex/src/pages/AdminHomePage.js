@@ -22,7 +22,6 @@ export default function AdminHomePage() {
         navigate("/admin/trips/create")
     }
 
-
     const getTrips = () => {
         axios.get(`${urlBase}/trips`)
             .then((res) => {
@@ -41,8 +40,10 @@ export default function AdminHomePage() {
             }}>
                 <h5>{trip.name}</h5>
             </button>
-        )
-    })
+        )})
+
+    
+
 
     return (
         <div>
