@@ -2,7 +2,7 @@ import React, {useState, useEffect, useMemo} from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import { urlBase } from '../constants/constantes';
-import {Form, ContainerForm} from '../constants/style'
+import {Form, ContainerForm, Button} from '../constants/style'
 import Select from 'react-select'
 import countryList from 'react-select-country-list'
 
@@ -58,16 +58,18 @@ export default function ApplicationFormPage() {
     const applyToTrip = () => {
         axios.post(`${urlBase}/trips/${id}/apply`, {...form, country: value.label})
         .then((res) => {
-           console.log(res.data)
+           alert("Formulário enviado com sucesso!")
+           
         })
         .catch((error) => {
-            console.log(error.response)
+            alert("Algo está errado. Tente novamente.")
         })
     }
 
     const preventReload =  (event) => {
         event.preventDefault()
         applyToTrip()
+        setForm({name:"", age:"", applicationText:"", profession:""})
     }
 
     const tripName = trips.map((data) => {
@@ -79,9 +81,10 @@ export default function ApplicationFormPage() {
 
     return (
         <ContainerForm>
-           <h2>Formulário de aplicação</h2>
+           <h2>Formulário de Aplicação</h2>
            <Form onSubmit={preventReload}>
                 <select onChange={onChangeSelect}>
+                    <option value="">Escolha uma viagem... </option>
                     {tripName}
                 </select>
                 <input
@@ -113,11 +116,11 @@ export default function ApplicationFormPage() {
                     placeholder="Profissão"
                 />
                 {CountrySelector()}
-                <button type="submit">Enviar</button>
+                <Button type="submit">Enviar</Button>
            </Form>
            
-           <button onClick={goToHome}> Voltar para home page </button>
-           <button onClick={goBack}> Voltar para viagens </button>
+           <Button onClick={goToHome}> Voltar para Homepage </Button>
+           <Button onClick={goBack}> Voltar para Viagens </Button>
         </ContainerForm>
     )
 }

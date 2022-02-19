@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { CardTrip, ContainerList, ButtonApply, BackButton } from '../constants/style'
+import { CardTrip, ContainerList, ButtonApply, Button } from '../constants/style'
 import { urlBase } from '../constants/constantes';
 import { useNavigate} from "react-router-dom";
 
@@ -36,10 +36,10 @@ export default function ListTripsPage() {
         return (
             <CardTrip key={trip.id}>
                 <h4>{trip.name}</h4>
-                <p>Planeta:{trip.planet}</p>
-                <p>Duração: {trip.durationInDays}</p>
-                <p>Descrição: {trip.description}</p>
-                <p>Data: {trip.date} </p>
+                <p><b>Planeta:</b> {trip.planet}</p>
+                <p><b>Duração:</b> {trip.durationInDays} dias</p>
+                <p><b>Descrição: </b>{trip.description}</p>
+                <p><b>Data:</b> {trip.date}</p>
             </CardTrip>
         )
     })
@@ -54,7 +54,7 @@ export default function ListTripsPage() {
                 Inscrever-se para viajar
             </ButtonApply>
 
-            <BackButton onClick={goBack}>Voltar</BackButton>
+            <Button onClick={goBack}>Voltar</Button>
             
            
         </ContainerList>

@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import { useProtectedPage, urlBase, token } from '../constants/constantes';
-import axios from 'axios'
+import { useProtectedPage, urlBase} from '../constants/constantes';
+import axios from 'axios';
+import {Button, Form, ContainerForm} from '../constants/style';
 
 export default function CreateTripPage() {
+    const token = window.localStorage.getItem('token')
     useProtectedPage();
     const [form, setForm] = useState({name:"", planet:"", date:"", description:"", durationInDays:""})
     
@@ -17,14 +19,16 @@ export default function CreateTripPage() {
         const {name, value} = event.target
         setForm({...form, [name]: value})
     };
-
+   
     const createTrip = (event) => {
         event.preventDefault()
         axios.post(`${urlBase}/trips`, form, { 
             headers: { 
                 auth: token }})
         .then((res) => {
-            alert("Viagem cadastrada com sucesso!")    
+            alert("Viagem cadastrada com sucesso!")  
+            setForm({name:"", planet:"", date:"", description:"", durationInDays:""})
+
         })
         .catch((err) => {
             console.log(err.response)
@@ -32,9 +36,9 @@ export default function CreateTripPage() {
     }
 
     return (
-        <div>
-            <h2>Criar viagem</h2>
-            <form onSubmit={createTrip}>
+        <ContainerForm>
+            <h2>Criar Viagem</h2>
+            <Form onSubmit={createTrip}>
                 <input
                     name="name"
                     value={form.name} 
@@ -75,10 +79,11 @@ export default function CreateTripPage() {
                     placeholder="Duração em dias"
                 />
 
-                <button type="submit"> Criar </button>
-            </form>
+                <Button type="submit"> Criar </Button>
+            </Form>
 
-            <button onClick={goBack}> Voltar </button>
-        </div>
+            <Button onClick={goBack}> Voltar </Button>
+        </ContainerForm>
     )
 }
+

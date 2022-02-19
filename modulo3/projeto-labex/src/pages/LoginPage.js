@@ -2,13 +2,13 @@ import React, {useState} from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import {urlBase} from '../constants/constantes'
 import axios from 'axios'
-import {Form, ContainerForm} from '../constants/style'
+import {Form, ContainerForm, Button} from '../constants/style'
 
 export default function LoginPage() {
     const [form, setForm] = useState({email:"", password:""})
     const navigate = useNavigate()
-    const pathParams = useParams()
-    const id = pathParams.id
+    // const pathParams = useParams()
+    // const id = pathParams.id
 
     const goToAdmin = () => {
         navigate('/admin')
@@ -39,10 +39,10 @@ export default function LoginPage() {
     }
 
     return (
-        <div>
+        <ContainerForm>
             <h2>Login</h2>
 
-            <form onSubmit={onSubmitLogin}>
+            <Form onSubmit={onSubmitLogin}>
                 <input 
                     name="email"
                     placeholder="E-mail"
@@ -62,10 +62,10 @@ export default function LoginPage() {
                     title={"A senha deve ter no mínimo 3 caracteresf"}
                 />
 
-                <button type="submit">Login</button>
-            </form>
+                <Button type="submit">Login</Button>
+            </Form>
             
-            <button onClick={goBack}>voltar</button>
-        </div>
+            <Button onClick={goBack}>Voltar</Button>
+        </ContainerForm>
     )
 }

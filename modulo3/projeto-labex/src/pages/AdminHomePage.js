@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useProtectedPage, urlBase, token } from '../constants/constantes'
+import { Button, CardName, ContainerForm, DeleteButton } from '../constants/style'
 
 export default function AdminHomePage() {
     useProtectedPage()
@@ -35,13 +36,13 @@ export default function AdminHomePage() {
 
     const tripDetails = trips.map((trip) => {
         return (
-            <div key={trip.id}>
-            <button  onClick={() => {
+            <CardName key={trip.id}>
+            <button onClick={() => {
                 navigate(`/admin/trips/details/${trip.id}`)
             }}>
-                <h5>{trip.name}</h5>
+                {trip.name}
             </button>
-            <button onClick={() => {
+            <DeleteButton onClick={() => {
                 if (window.confirm("Você tem certeza que deseja deletar essa viagem?") === true) {
                     axios.delete(`${urlBase}/trips/${trip.id}`, { 
                     headers: { 
@@ -54,22 +55,25 @@ export default function AdminHomePage() {
                     })
                 } 
                     
-            }}> DELETE
-            </button>
-           </div>
+            }}> 
+            </DeleteButton>
+            
+           </CardName>
+           
         )})
 
     
 
 
     return (
-        <div>
-            <h2>Área do administrador</h2>
+        <ContainerForm>
+            <h2>Área do Administrador</h2>
             {tripDetails}
-            <button onClick={goBack}> Voltar </button>
-            <button onClick={goToCreate}> Criar viagens </button>
-            <button onClick={goBack}> Logout </button>
             
-        </div>
+            <Button onClick={goToCreate}> Criar Nova Viagem </Button>
+            <Button onClick={goBack}> Voltar </Button>
+            <Button onClick={goBack}> Logout </Button>
+            
+        </ContainerForm>
     )
 }

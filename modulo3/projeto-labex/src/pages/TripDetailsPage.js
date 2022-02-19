@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import { urlBase, useProtectedPage, token } from '../constants/constantes';
 import axios from 'axios';
+import {CardTrip, ContainerForm, Button, Header, CardTripDetails} from '../constants/style'
 
 export default function TripDetailsPage() {
     useProtectedPage();
@@ -35,13 +36,11 @@ export default function TripDetailsPage() {
     const approved = tripDetail.approved && tripDetail.approved.map((person) => {
             return (
                 <div>
+                    <h4>Aprovados</h4>
                     <p>{person.name}, {person.age} anos</p>
-                    <p> Profissão: {person.profession}</p>
-                    <p> País: {person.country}</p>
-                    <p> Sobre: {person.applicationText}</p>
                 </div>
             )
-        })
+    })
 
 
     const decideCandidate = (id, status) => {
@@ -62,39 +61,37 @@ export default function TripDetailsPage() {
     const pending = tripDetail.candidates && tripDetail.candidates.map((person) => {
         return (
             <div>
+                <h4>Pendentes</h4>
                 <p><b>{person.name}, {person.age} anos</b></p>
                 <p><b>Profissão:</b>  {person.profession}</p>
                 <p><b>País:</b> {person.country}</p>
                 <p><b>Sobre:</b> {person.applicationText}</p>
-                <button onClick={() => {decideCandidate(person.id, true)}}>APROVAR</button>
-                <button onClick={() => decideCandidate(person.id, false)}>REPROVAR</button>
+                <Button onClick={() => {decideCandidate(person.id, true)}}>APROVAR</Button>
+                <Button onClick={() => decideCandidate(person.id, false)}>REPROVAR</Button>
             </div>
         )})
 
 
     return (
-        <div>
-            <div>
-                {tripDetail.name}
-                {tripDetail.description}
-                {tripDetail.durationInDays}
-                {tripDetail.planet}
-                {tripDetail.date}
-            </div>
+        <ContainerForm>
+            <Header>
+                <Button onClick={goToLogin}>Logout</Button>
+                
+                <Button onClick={goBack}>Voltar</Button>
+                
+            </Header>
+            
+            <CardTripDetails>
+                <h3>{tripDetail.name}</h3>
+                <p><b>Data:</b> {tripDetail.date}</p>
+                <p>{tripDetail.description}</p>
+                <p><b>Duração:</b> {tripDetail.durationInDays} dias</p>
+                <p><b>Local:</b> {tripDetail.planet}</p>   
+                <h4>Candidatos: </h4>
+                    {approved}
+                    {pending}
+            </CardTripDetails>
 
-            <div>
-                <h4>Candidatos Aprovados</h4>
-                {approved}
-            </div>
-
-            <div>
-                <h4>Candidatos Pendentes</h4>
-                {pending}
-            </div>
-
-            <button onClick={goToLogin}>Logout</button>
-            <button onClick={goBack}>Voltar</button>
-
-        </div>
+        </ContainerForm>
     )
 }

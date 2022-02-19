@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import galaxy from "./img/galaxy.jpg"
+import star from "./img/star.jpg"
 
 export const Background = styled.div`
-    background-image: url(${galaxy});
+    background-image: url(${star});
     background-size: cover;
     height: 100vh;
     width: 100vw;
