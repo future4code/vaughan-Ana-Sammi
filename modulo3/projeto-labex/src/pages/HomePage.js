@@ -1,13 +1,11 @@
 import React from 'react'
-import axios from 'axios'
 import earth from '../img/earth.jpg'
-import {Container, ButtonList, ButtonLogin} from '../constants/style'
-import { useNavigate, useParams } from "react-router-dom";
-import Router from '../router/Router'
+import {Container, BackButton } from '../constants/style'
+import { useNavigate} from "react-router-dom";
+
 
 export default function HomePage() {
     const navigate = useNavigate()
-    const params = useParams()
 
     const goToList = () => {
         navigate("/trips/list")
@@ -21,10 +19,10 @@ export default function HomePage() {
         <div style={{backgroundImage: `url(${earth})`,
             width: '100vw', height: '100vh', backgroundSize: 'cover'}}>
 
-            <ButtonLogin onClick={goToLogin}>Login</ButtonLogin>
+            <BackButton style={{position: 'absolute', right: '2rem', top: '2rem'}}onClick={goToLogin}>Login</BackButton>
             <Container>
                 <h1>Odissey</h1>
-                <ButtonList onClick={goToList}>Viajar</ButtonList>  
+                <BackButton style={{width: '10rem', height: '2rem'}}onClick={goToList}>Viajar</BackButton>  
             </Container>
             
         </div>

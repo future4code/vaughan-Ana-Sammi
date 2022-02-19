@@ -30,25 +30,7 @@ export const Container = styled.div`
 
 `
 
-export const ButtonList = styled.button`
-    height: 2rem;
-    width: 9rem;
-    background-color: transparent;
-    color: white;
-    opacity: 70%;
-    border: 2px white solid;
-    font-size: 1.2rem;
-    border-radius: 5%;
 
-`
-
-export const ButtonLogin = styled.button`
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    height: 2rem;
-    width: 3rem;
-`
 
 /* Lista de viagens */
 export const CardTrip = styled.div`
@@ -88,29 +70,43 @@ export const ContainerList = styled.div`
     div {
         margin-bottom: 2%;
     }
+    button {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+    }
 `
 
 export const ButtonApply = styled.button`
-    grid-row: 4 / 5;
-    grid-column: 1 / 4;
+    grid-row: 4 / 5 !important;
+    grid-column: 1 / 4 !important;
+    cursor: pointer;
+    background: transparent;
+    font-size: 16px;
+    border-radius: 3px;
+    color: #c0c0c0;
+    border: 2px solid #c0c0c0;
+    margin: 0 1em;
+    padding: 0.25em 1em;
+    transition: 0.5s all ease-out;
+    &:hover {
+        background-color:#c0c0c0;
+        color: black;
+    }
 `
 
 export const BackButton = styled.button`
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
-    background-color: transparent;
-    color: white;
-    width: 4rem;
-    height: 2rem;
-    font-size: 1rem;
-    border:solid 2px #c0c0c0;
+    cursor: pointer;
     background: transparent;
-    color: #c0c0c0 !important;
-    :hover{
-        border:solid 2px #c0c0c0;
-        background: #c0c0c0;
-        color: #1f1f1f !important;
-        font-weight: 500
+    font-size: 16px;
+    border-radius: 3px;
+    color: #c0c0c0;
+    border: 2px solid #c0c0c0;
+    margin: 0 1em;
+    padding: 0.25em 1em;
+    transition: 0.5s all ease-out;
+    &:hover {
+        background-color:#c0c0c0;
+        color: black;
     }
 `
 
