@@ -1,12 +1,13 @@
 import styled, {createGlobalStyle} from 'styled-components'
 
+
 export const GlobalStyle = createGlobalStyle`
     * {
         padding: 0;
         margin: 0;
     }    
     body{
-        color: #bdbdbd;
+        color: #a5a5a5;
         font-family: Arial, Helvetica, sans-serif;
         position: relative;
         background-color: #1d1d1d;
@@ -56,7 +57,6 @@ export const CardTrip = styled.div`
     justify-content: space-evenly;
     width: 20rem;
     height: 12rem;
-    border: 1px solid red;
     color: white;
     h4 {
         font-size: 1.5rem;
@@ -67,20 +67,50 @@ export const CardTrip = styled.div`
     }
     padding: 3%;
     text-align: center;
+    background: rgba(136, 136, 136, 0.1);
+    border-radius: 5px;
+    backdrop-filter: blur(8px);
+        :-webkit-backdrop-filter: blur(2px);
+   
 `
 
 export const ContainerList = styled.div`
+    height: 100vh;
     display: grid;
-    grid-template: 20% 1fr 1fr 1fr / 1fr 1fr;
+    grid-template: 20% 1fr 1fr 20% / 1fr 1fr 1fr;
     h2 {
         font-size: 2rem;
         grid-row:1 / 2;
-        grid-column: 1/3;
+        grid-column: 1/4;
     }
     align-items: center;
     justify-items: center;
     div {
         margin-bottom: 2%;
+    }
+`
+
+export const ButtonApply = styled.button`
+    grid-row: 4 / 5;
+    grid-column: 1 / 4;
+`
+
+export const BackButton = styled.button`
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    background-color: transparent;
+    color: white;
+    width: 4rem;
+    height: 2rem;
+    font-size: 1rem;
+    border:solid 2px #c0c0c0;
+    background: transparent;
+    color: #c0c0c0 !important;
+    :hover{
+        border:solid 2px #c0c0c0;
+        background: #c0c0c0;
+        color: #1f1f1f !important;
+        font-weight: 500
     }
 `
 

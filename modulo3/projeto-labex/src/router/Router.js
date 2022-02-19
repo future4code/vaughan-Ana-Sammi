@@ -17,9 +17,9 @@ export default function Router() {
             <Route exact path='/trips/list' element={<ListTripsPage/>}/>
             <Route exact path='/trips/application' element={<ApplicationFormPage/>}/>
             <Route exact path='/login' element={<LoginPage/>}/>
-            <Route exact path='/admin/:id' element={<AdminHomePage/>}/>
+            <Route exact path='/admin' element={<AdminHomePage/>}/>
             <Route exact path='/admin/trips/create' element={<CreateTripPage/>}/>
-            <Route path='/admin/trips/details/:id' element={<TripDetailsPage/>}/>
+            <Route exact path='/admin/trips/details/:id' element={<TripDetailsPage/>}/>
         </Routes>
     </BrowserRouter>
   );

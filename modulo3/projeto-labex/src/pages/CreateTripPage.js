@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useProtectedPage, urlBase, token } from '../constants/constantes';
 import axios from 'axios'
 
@@ -20,11 +20,11 @@ export default function CreateTripPage() {
 
     const createTrip = (event) => {
         event.preventDefault()
-        axios.post(`${urlBase}/trips`, { 
+        axios.post(`${urlBase}/trips`, form, { 
             headers: { 
-                auth: token }}, form)
+                auth: token }})
         .then((res) => {
-            console.log(res.data)    
+            alert("Viagem cadastrada com sucesso!")    
         })
         .catch((err) => {
             console.log(err.response)

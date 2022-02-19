@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from "react-router-dom";
-import { useProtectedPage, urlBase } from '../constants/constantes'
+import { useProtectedPage, urlBase, token } from '../constants/constantes'
 
 export default function AdminHomePage() {
     useProtectedPage()
@@ -35,11 +35,28 @@ export default function AdminHomePage() {
 
     const tripDetails = trips.map((trip) => {
         return (
-            <button key={trip.id} onClick={() => {
+            <div key={trip.id}>
+            <button  onClick={() => {
                 navigate(`/admin/trips/details/${trip.id}`)
             }}>
                 <h5>{trip.name}</h5>
             </button>
+            <button onClick={() => {
+                if (window.confirm("Você tem certeza que deseja deletar essa viagem?") === true) {
+                    axios.delete(`${urlBase}/trips/${trip.id}`, { 
+                    headers: { 
+                        auth: token }})
+                    .then((res) => {
+                        getTrips()
+                    })
+                    .catch((err) => {
+                        console.log(err.response)
+                    })
+                } 
+                    
+            }}> DELETE
+            </button>
+           </div>
         )})
 
     

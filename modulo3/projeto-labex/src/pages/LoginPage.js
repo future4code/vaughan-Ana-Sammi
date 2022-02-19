@@ -11,7 +11,7 @@ export default function LoginPage() {
     const id = pathParams.id
 
     const goToAdmin = () => {
-        navigate('/admin/:id')
+        navigate('/admin')
     };
 
     const goBack = () => {

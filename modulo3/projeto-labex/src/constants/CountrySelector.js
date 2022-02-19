@@ -10,7 +10,7 @@ function CountrySelector() {
     setValue(value)
   }
 
-  return <Select options={options} value={value} onChange={changeHandler} />
+  return <Select className="country" options={options} value={value} onChange={changeHandler} />
 }
 
 export default CountrySelector
