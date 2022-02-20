@@ -1,14 +1,12 @@
 import React, {useState} from 'react'
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {urlBase} from '../constants/constantes'
 import axios from 'axios'
-import {Form, ContainerForm, Button} from '../constants/style'
+import {Form, ContainerLogin, Button} from '../constants/style'
 
 export default function LoginPage() {
     const [form, setForm] = useState({email:"", password:""})
     const navigate = useNavigate()
-    // const pathParams = useParams()
-    // const id = pathParams.id
 
     const goToAdmin = () => {
         navigate('/admin')
@@ -39,7 +37,7 @@ export default function LoginPage() {
     }
 
     return (
-        <ContainerForm>
+        <ContainerLogin>
             <h2>Login</h2>
 
             <Form onSubmit={onSubmitLogin}>
@@ -66,6 +64,6 @@ export default function LoginPage() {
             </Form>
             
             <Button onClick={goBack}>Voltar</Button>
-        </ContainerForm>
+        </ContainerLogin>
     )
 }

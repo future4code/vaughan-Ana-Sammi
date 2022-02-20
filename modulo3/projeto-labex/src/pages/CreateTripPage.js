@@ -4,7 +4,9 @@ import { useProtectedPage, urlBase} from '../constants/constantes';
 import axios from 'axios';
 import {Button, Form, ContainerForm} from '../constants/style';
 
+
 export default function CreateTripPage() {
+    // const [startDate, setStartDate] = useState(null)
     const token = window.localStorage.getItem('token')
     useProtectedPage();
     const [form, setForm] = useState({name:"", planet:"", date:"", description:"", durationInDays:""})
@@ -35,6 +37,7 @@ export default function CreateTripPage() {
         })
     }
 
+
     return (
         <ContainerForm>
             <h2>Criar Viagem</h2>
@@ -45,6 +48,8 @@ export default function CreateTripPage() {
                     type="text" 
                     onChange={onChange} 
                     placeholder="Nome da Viagem"
+                    required
+                    minlength="5"
                 />
 
                 <input
@@ -53,14 +58,17 @@ export default function CreateTripPage() {
                     type="text" 
                     onChange={onChange} 
                     placeholder="Planeta"
+                    required
                 />
-
+               
                 <input
                     name="date"
                     value={form.date} 
                     type="date" 
                     onChange={onChange} 
                     placeholder="Data"
+                    required
+                    min={new Date()}
                 />
 
                 <textarea
@@ -69,14 +77,18 @@ export default function CreateTripPage() {
                     type="text" 
                     onChange={onChange} 
                     placeholder="Descrição"
+                    required
+                    minlength="30"
                 />
 
                 <input
                     name="durationInDays"
                     value={form.durationInDays} 
-                    type="text" 
+                    type="number" 
                     onChange={onChange} 
                     placeholder="Duração em dias"
+                    required
+                    min="50"
                 />
 
                 <Button type="submit"> Criar </Button>

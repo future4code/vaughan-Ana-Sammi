@@ -30,8 +30,6 @@ export const Container = styled.div`
 
 `
 
-
-
 /* Lista de viagens */
 export const CardTrip = styled.div`
     display: flex;
@@ -53,8 +51,7 @@ export const CardTrip = styled.div`
     background: rgba(136, 136, 136, 0.1);
     border-radius: 5px;
     backdrop-filter: blur(8px);
-    
-   
+ 
 `
 
 export const ContainerList = styled.div`
@@ -118,9 +115,8 @@ export const Form = styled.form`
     flex-direction: column;
     width: 100%;
     height: 40vh;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    
 `
 
 export const ContainerForm = styled.div`
@@ -220,4 +216,31 @@ export const CardTripDetails = styled.div`
     background: rgba(136, 136, 136, 0.1);
     border-radius: 5px;
     backdrop-filter: blur(8px);
+`
+
+export const Country = styled.div`
+    width: 23%;
+    height: 1.5rem;
+    color: black;
+    margin-bottom: .5rem;
+`
+
+export const ContainerLogin = styled.div`
+    height:40vh;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    h2 {
+        margin-bottom: 2rem;
+    }
+    input {
+        width: 20rem;
+        padding: 4px;
+    }
+    button {
+        width:15rem;
+        margin-top: 1rem;
+    }
 `

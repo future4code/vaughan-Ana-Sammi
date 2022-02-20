@@ -2,7 +2,7 @@ import React, {useState, useEffect, useMemo} from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import { urlBase } from '../constants/constantes';
-import {Form, ContainerForm, Button} from '../constants/style'
+import {Form, ContainerForm, Button, Country} from '../constants/style'
 import Select from 'react-select'
 import countryList from 'react-select-country-list'
 
@@ -51,7 +51,12 @@ export default function ApplicationFormPage() {
         const changeHandler = value => {
           setValue(value)
         }
-        return <Select className="country" options={options} value={value} onChange={changeHandler} />
+        return <Select  
+                    required
+                    options={options} 
+                    value={value} 
+                    onChange={changeHandler} 
+                />
       }
 
 
@@ -93,6 +98,7 @@ export default function ApplicationFormPage() {
                     type="text" 
                     onChange={onChange} 
                     placeholder="Nome"
+                    required
                 />
                 <input 
                     name="age"
@@ -100,13 +106,15 @@ export default function ApplicationFormPage() {
                     type="text" 
                     onChange={onChange} 
                     placeholder="Idade"
+                    required
                 />
                 <textarea
                     name="applicationText"
                     value={form.applicationText}
                     type="text" 
                     onChange={onChange} 
-                    placeholder="Application text"
+                    placeholder="Texto de Apresentação"
+                    required
                 />
                 <input 
                     name="profession"
@@ -114,8 +122,12 @@ export default function ApplicationFormPage() {
                     type="text" 
                     onChange={onChange}
                     placeholder="Profissão"
+                    required
                 />
-                {CountrySelector()}
+                <Country>
+                    {CountrySelector()}
+                </Country>
+                
                 <Button type="submit">Enviar</Button>
            </Form>
            
