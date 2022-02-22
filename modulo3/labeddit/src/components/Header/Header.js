@@ -27,8 +27,8 @@ export default function ButtonAppBar() {
 
             <Button 
                 onClick={() => goToLogin(navigate)} 
-                variant="outlined" 
-                color="secondary"
+                variant="contained" 
+                color="primary"
             > Login </Button>
           </div>
 

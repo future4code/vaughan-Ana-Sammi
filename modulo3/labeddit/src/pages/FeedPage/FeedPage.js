@@ -1,7 +1,12 @@
 import React from 'react' 
 import Button from '@mui/material/Button'
+import useProtectedPage from '../../hooks/useProtectedPage';
 
-function FeedPage() {
+
+const FeedPage = () => {
+
+    useProtectedPage()
+    
     return(
         <div>
             feed

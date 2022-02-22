@@ -1,11 +1,32 @@
 import React from 'react'
 import Button from '@mui/material/Button'
+import LoginForm from './LoginForm'
+import {goToSignUp} from '../../routes/coordinator'
+import {useNavigate} from 'react-router-dom'
+import {Container} from './style'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
-function LoginPage() {
+
+const LoginPage = () => {
+    useUnprotectedPage()
+    const navigate = useNavigate()
+
     return(
-        <div>
-            <Button variant="contained" color="primary">Login</Button>
-        </div>
+        <Container>
+            <h2>Login</h2>
+
+            <LoginForm/>
+
+            <Button 
+                variant={"text"} 
+                color={"primary"} 
+                onClick={() => goToSignUp(navigate)}
+                margin={"normal"}
+            >
+                Ainda não tem conta? Cadastre-se
+            </Button>
+
+        </Container>
     )
 }
 
