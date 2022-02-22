@@ -1,17 +1,16 @@
-import { Navigate } from "react-router-dom"
 
-export const goToLogin = () => {
-    Navigate('/login')
+export const goToLogin = (navigate) => {
+    navigate('/login')
 }
 
-export const goToFeed = () => {
-    Navigate('/')
+export const goToFeed = (navigate) => {
+    navigate('/')
 }
 
-export const goToSignUp = () => {
-    Navigate('/cadastrar')
+export const goToSignUp = (navigate) => {
+    navigate('/cadastrar')
 }
 
-export const goToPost = (id) => {
-    Navigate(`/post/${id}`)
+export const goToPost = (navigate, id) => {
+    navigate(`/post/${id}`)
 }

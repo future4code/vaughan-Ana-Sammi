@@ -1,1 +1,1 @@
-const BASE_URL = "https://labeddit.herokuapp.com"
+const baseURL = "https://labeddit.herokuapp.com"

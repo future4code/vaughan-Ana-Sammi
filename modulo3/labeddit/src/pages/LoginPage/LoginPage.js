@@ -1,9 +1,10 @@
-import React from 'react' 
+import React from 'react'
+import Button from '@mui/material/Button'
 
 function LoginPage() {
     return(
         <div>
-            LOGIN
+            <Button variant="contained" color="primary">Login</Button>
         </div>
     )
 }
