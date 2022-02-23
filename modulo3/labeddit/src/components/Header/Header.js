@@ -6,9 +6,24 @@ import {goToFeed, goToLogin, goToSignUp} from '../../routes/coordinator'
 import {useNavigate} from 'react-router-dom'
 
 
-
-export default function ButtonAppBar() {
+const Header = ({buttonText, setButtonText}) => {
   const navigate = useNavigate();
+  const token = window.localStorage.getItem("token")
+
+  const logout = () => {
+    window.localStorage.removeItem('token')
+  }
+
+  const buttonTextAction = () => {
+    if (token){
+      logout()
+      setButtonText("Login")
+      goToLogin(navigate)
+    } else {
+      goToLogin(navigate)
+    }
+  }
+
   return (
       <AppBar position="static">
         <StyledToolbar>
@@ -26,13 +41,15 @@ export default function ButtonAppBar() {
             > Cadastre-se </Button>
 
             <Button 
-                onClick={() => goToLogin(navigate)} 
+                onClick={buttonTextAction} 
                 variant="contained" 
-                color="primary"
-            > Login </Button>
+                color="secondary"
+            > {buttonText} </Button>
           </div>
 
         </StyledToolbar>
       </AppBar>
   );
 }
+
+export default Header

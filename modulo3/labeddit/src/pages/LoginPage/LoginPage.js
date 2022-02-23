@@ -7,7 +7,7 @@ import {Container} from './style'
 import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
 
-const LoginPage = () => {
+const LoginPage = ({setButtonText}) => {
     useUnprotectedPage()
     const navigate = useNavigate()
 
@@ -15,7 +15,7 @@ const LoginPage = () => {
         <Container>
             <h2>Login</h2>
 
-            <LoginForm/>
+            <LoginForm setButtonText={setButtonText}/>
 
             <Button 
                 variant={"text"} 

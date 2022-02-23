@@ -7,7 +7,7 @@ import {Container} from './style'
 import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
 
-const SignUpPage = () => {
+const SignUpPage = ({setButtonText}) => {
     
     useUnprotectedPage()
 
@@ -17,7 +17,7 @@ const SignUpPage = () => {
         <Container>
             <h2>Cadastro</h2>
 
-            <SignUpForm/>
+            <SignUpForm setButtonText={setButtonText}/>
 
             <Button 
                 variant={"text"} 
