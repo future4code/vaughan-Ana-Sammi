@@ -4,7 +4,7 @@ export const goToLogin = (navigate) => {
 }
 
 export const goToFeed = (navigate) => {
-    navigate('/feed')
+    navigate('/')
 }
 
 export const goToSignUp = (navigate) => {

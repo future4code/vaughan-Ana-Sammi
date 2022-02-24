@@ -12,7 +12,7 @@ export const Router = ({setButtonText}) => {
             <Routes>
                 <Route path='/login' element={<LoginPage setButtonText={setButtonText}/>}/>
                 <Route path='/cadastrar' element={<SignUpPage setButtonText={setButtonText}/>}/>
-                <Route path='/feed' element={<FeedPage/>}/>
+                <Route path='/' element={<FeedPage/>}/>
                 <Route path='/post/:id' element={<PostPage/>}/>
                 <Route path='*' element={<ErrorPage/>}/>
             </Routes>

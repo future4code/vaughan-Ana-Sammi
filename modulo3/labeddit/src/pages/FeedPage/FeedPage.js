@@ -26,8 +26,8 @@ const FeedPage = ({ data, getData }) => {
   const params = useParams();
   const [posts] = useRequestData([], `${baseURL}/posts`);
   const navigate = useNavigate();
-  const [voteDown, setVoteDown] = useState("false");
-  const [voteUp, setVoteUp] = useState("false");
+  const [voteDown, setVoteDown] = useState(false);
+  const [voteUp, setVoteUp] = useState(false);
  
   const onClickCard = (id) => {
     goToPost(navigate, id);
@@ -36,10 +36,10 @@ const FeedPage = ({ data, getData }) => {
 
   const onClickUp = (id) => {
     if (voteDown) {
-      setVoteDown("false");
+      setVoteDown(false);
       createVote(id, getData);
     } else if (voteUp) {
-      setVoteUp("false");
+      setVoteUp(false);
       deleteVote(id, getData);
     } else {
       createVote(id, getData);
@@ -48,13 +48,15 @@ const FeedPage = ({ data, getData }) => {
 
   const onClickDown = (id) => {
     if (voteDown) {
-      setVoteDown("false");
+      setVoteDown(false);
       deleteVote(id, getData);
+      console.log("delete vote")
     } else if (voteUp) {
-      setVoteUp("false");
+      setVoteUp(false);
       changeVote(id, getData, setVoteDown);
     } else {
       changeVote(id, getData, setVoteDown);
+      console.log("OI")
     }
   };
 
@@ -97,7 +99,7 @@ const FeedPage = ({ data, getData }) => {
               color="text.primary"
               fontSize="1rem"
             >
-              <Reddit sx={{ bgcolor: "secondary" }} color="primary" />
+              <Reddit sx={{ bgcolor: "secondary" }} color="primary" size="large"/>
               <b>{post.username}</b>
             </Typography>
 
