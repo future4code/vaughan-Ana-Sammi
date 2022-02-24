@@ -18,3 +18,50 @@ export const createPost = (body, clear) => {
             console.log(err.response)
         })
 }
+
+export const createVote = (id, getData, setVoteUp) => {
+    axios.post(`${baseURL}/posts/${id}/votes`, {direction: 1}, {
+        headers: {
+            Authorization: window.localStorage.getItem('token')
+        }
+    })
+    .then((res) => {
+        getData(`${baseURL}/posts`)
+        console.log(res.data)
+        setVoteUp("true")
+    })
+    .catch((err) => {
+        console.log(err.message)
+    }) 
+}
+
+export const deleteVote = (id, getData) => {
+    axios.delete(`${baseURL}/posts/${id}/votes`, {
+        headers: {
+            Authorization: window.localStorage.getItem('token')
+        }
+    })
+    .then((res) => {
+        console.log(res.data)
+        getData(`${baseURL}/posts`)
+    })
+    .catch((err) => {
+        console.log(err.response)
+    })
+}
+
+export const changeVote = (id, getData, setVoteDown) => {
+    axios.put(`${baseURL}/posts/${id}/votes`, {direction: -1}, {
+        headers: {
+            Authorization: window.localStorage.getItem('token')
+        }
+    })
+    .then((res) => {
+        console.log(res.data)
+        getData(`${baseURL}/posts`)
+        setVoteDown("true")
+    })
+    .catch((err) => {
+        console.log(err.response)
+    })
+}
