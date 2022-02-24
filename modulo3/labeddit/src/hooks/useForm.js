@@ -12,6 +12,7 @@ const useForm = (initialState) => {
         setForm(initialState)
     }
 
+
     return [form, handleInputChange, clear]
 }
 
