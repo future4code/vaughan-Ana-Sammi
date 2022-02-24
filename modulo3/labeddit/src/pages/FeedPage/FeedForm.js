@@ -3,6 +3,7 @@ import Button from '@mui/material/Button'
 import {TextField } from '@mui/material'
 import useForm from '../../hooks/useForm'
 import {createPost} from '../../services/posts'
+import {Form} from './style'
 
 
 const FeedForm = () => {
@@ -15,16 +16,17 @@ const FeedForm = () => {
 
 
     return (
-        <form onSubmit={onSubmitForm}>
+        
+        <Form onSubmit={onSubmitForm}>
             <TextField
                 name={"title"}
                 value={form.title}
                 onChange={onChange}
                 label={"Título"}
-                fullWidth
                 type="text"
                 margin={"normal"}
                 required
+                fullWidth
             />
             <TextField
                 name={"body"}
@@ -47,7 +49,7 @@ const FeedForm = () => {
             >
                 Enviar
             </Button>
-        </form>
+        </Form>
     )
 }
 
