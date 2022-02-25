@@ -8,12 +8,13 @@ export const MainContainer = styled.div`
     align-items: center;
 `
 export const PostCard = styled(Card)`
-    max-width: 50vw;
+    width: 60vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: 2rem;
     align-self: center;
+    align-items: center;
 
 `
 export const Container = styled(CardContent)`
@@ -30,4 +31,9 @@ export const Container = styled(CardContent)`
 export const ContainerComment = styled.div`
     display: flex;
     align-items: baseline;
+`
+
+export const Form = styled.form`
+    width: 60vw;
+    text-align: center;
 `

@@ -14,11 +14,6 @@ import {
   Stack,
 } from "@mui/material";
 import { ThumbUp, ThumbDown, InsertComment, Reddit } from "@mui/icons-material";
-import PostPage from '../PostPage/PostPage'
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 const FeedPage = ({ data, getData }) => {
@@ -118,7 +113,7 @@ const FeedPage = ({ data, getData }) => {
               {post.title}
             </Typography>
 
-            <Typography mt={1} mb={2} color="body1" color="#262626">
+            <Typography mt={1} mb={2} variant="body1" color="#262626">
               {post.body}
             </Typography>
           </TitleAndBody>

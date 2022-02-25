@@ -14,9 +14,8 @@ const FeedForm = () => {
         createPost(form, clear)
     }
 
-
     return (
-        
+
         <Form onSubmit={onSubmitForm}>
             <TextField
                 name={"title"}

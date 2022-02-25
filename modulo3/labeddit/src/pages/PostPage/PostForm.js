@@ -3,6 +3,7 @@ import Button from '@mui/material/Button'
 import {TextField } from '@mui/material'
 import useForm from '../../hooks/useForm'
 import {createComment} from '../../services/comments'
+import {Form} from './style'
 
 
 const PostForm = ({params, getData}) => {
@@ -14,7 +15,7 @@ const PostForm = ({params, getData}) => {
     }
 
     return (
-        <form onSubmit={onSubmitForm}>
+        <Form onSubmit={onSubmitForm}>
 
             <TextField
                 name={"body"}
@@ -39,7 +40,7 @@ const PostForm = ({params, getData}) => {
                 Enviar
             </Button>
 
-        </form>
+        </Form>
     )
 }
 

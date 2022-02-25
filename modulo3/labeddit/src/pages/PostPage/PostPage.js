@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { useParams } from "react-router-dom";
 import useRequestData from "../../hooks/useRequestData";
@@ -52,10 +52,10 @@ function PostPage() {
       <PostCard>{post}</PostCard>
 
       
-      <div> 
+      <PostCard> 
         <Typography variant="h6"> Comentários</Typography>
           {comment}
-    </div>
+    </PostCard>
 
       <PostForm params={params} getData={getData} />
     </MainContainer>
