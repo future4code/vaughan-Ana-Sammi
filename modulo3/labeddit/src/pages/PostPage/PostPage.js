@@ -41,8 +41,12 @@ function PostPage() {
   const comment = comments.map((item) => {
     return (
       <ContainerComment key={item.id}>
-        <Typography variant="overline" component="div" color="primary"><b>{item.username}</b> comentou:</Typography>
-        <Typography mt={1} mb={2} ml={1} color="body1" color="#262626">{item.body}</Typography>
+        <Typography variant="overline" component="div" color="primary">
+          <b>{item.username}</b> comentou:
+        </Typography>
+        <Typography mt={1} mb={2} ml={1} color="body1" color="#262626">
+          {item.body}
+        </Typography>
       </ContainerComment>
     );
   });
@@ -51,11 +55,10 @@ function PostPage() {
     <MainContainer>
       <PostCard>{post}</PostCard>
 
-      
-      <PostCard> 
+      <PostCard>
         <Typography variant="h6"> Comentários</Typography>
-          {comment}
-    </PostCard>
+        {comment}
+      </PostCard>
 
       <PostForm params={params} getData={getData} />
     </MainContainer>

@@ -15,7 +15,6 @@ export const PostCard = styled(Card)`
     margin-top: 2rem;
     align-self: center;
     align-items: center;
-
 `
 export const Container = styled(CardContent)`
     display: flex;

@@ -14,7 +14,34 @@ export const createComment = (body, clear, id, getData) => {
             clear()
         })
         .catch((err) => {
-            console.log(err.response)
+            alert(err.response)
         })
 }
 
+export const createCommentVote = (id, getData, setCommentDown) => {
+    axios.post(`${baseURL}/comments/${id}/votes`, {direction: 1}, {
+        headers: {
+            Authorization: window.localStorage.getItem('token')
+        }
+    })
+    .then((res) => {
+        getData(`${baseURL}/comments`)
+        setCommentDown("true")
+    })
+    .catch((err) => {
+        console.log(err.response)
+    })
+}
+
+export const deleteCommentVote = (id, getData) => {
+    axios.delete(`${baseURL}/comments/${id}/votes`, {
+        headers: {
+            Authorization: window.localStorage.getItem('token')
+        }
+    })
+    .then((res) => {
+        getData(`${baseURL}/comments`)
+    })
+    .catch((err) => {
+    })
+}

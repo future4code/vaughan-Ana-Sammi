@@ -15,7 +15,7 @@ export const createPost = (body, clear) => {
             clear()
         })
         .catch((err) => {
-            console.log(err.response)
+            alert("Algo deu errado. Tente novamente.")
         })
 }
 
@@ -42,11 +42,9 @@ export const deleteVote = (id, getData) => {
         }
     })
     .then((res) => {
-        console.log(res.data)
         getData(`${baseURL}/posts`)
     })
     .catch((err) => {
-        console.log(err.response)
     })
 }
 
@@ -57,11 +55,9 @@ export const changeVote = (id, getData, setVoteDown) => {
         }
     })
     .then((res) => {
-        console.log(res.data)
         getData(`${baseURL}/posts`)
         setVoteDown("true")
     })
     .catch((err) => {
-        console.log(err.response)
     })
 }
