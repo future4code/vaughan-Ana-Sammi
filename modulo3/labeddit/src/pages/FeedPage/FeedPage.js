@@ -45,13 +45,11 @@ const FeedPage = ({ data, getData }) => {
     if (voteDown) {
       setVoteDown(false);
       deleteVote(id, getData);
-      console.log("delete vote")
     } else if (voteUp) {
       setVoteUp(false);
       changeVote(id, getData, setVoteDown);
     } else {
       changeVote(id, getData, setVoteDown);
-      console.log("OI")
     }
   };
 

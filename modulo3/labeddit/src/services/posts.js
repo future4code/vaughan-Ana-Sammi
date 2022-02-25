@@ -27,11 +27,9 @@ export const createVote = (id, getData, setVoteUp) => {
     })
     .then((res) => {
         getData(`${baseURL}/posts`)
-        console.log(res.data)
         setVoteUp("true")
     })
     .catch((err) => {
-        console.log(err.message)
     }) 
 }
 
@@ -56,7 +54,7 @@ export const changeVote = (id, getData, setVoteDown) => {
     })
     .then((res) => {
         getData(`${baseURL}/posts`)
-        setVoteDown("true")
+        setVoteDown(true)
     })
     .catch((err) => {
     })

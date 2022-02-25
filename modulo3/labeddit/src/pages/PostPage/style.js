@@ -19,17 +19,28 @@ export const PostCard = styled(Card)`
 export const Container = styled(CardContent)`
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     margin-top: 2%;
     width: 50vw;
     align-self: center;
-    flex-wrap: nowrap;
 `
 
 export const ContainerComment = styled.div`
     display: flex;
-    align-items: baseline;
+    flex-direction:column;
+
+    
+`
+export const ButtonContainer = styled.div`
+    p {
+        transform:translateX(30%);
+        margin: .5rem 1rem 0 1rem;
+    }
+    margin-right: 3rem;
+    margin-left: 3rem;
+    margin-top: -3rem;
+    display: flex;
 `
 
 export const Form = styled.form`

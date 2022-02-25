@@ -29,7 +29,6 @@ export const createCommentVote = (id, getData, setCommentDown) => {
         setCommentDown("true")
     })
     .catch((err) => {
-        console.log(err.response)
     })
 }
 
@@ -41,6 +40,21 @@ export const deleteCommentVote = (id, getData) => {
     })
     .then((res) => {
         getData(`${baseURL}/comments`)
+    })
+    .catch((err) => {
+    })
+}
+
+export const changeCommentVote = (id, getData, setVoteDown) => {
+    axios.put(`${baseURL}/comments/${id}/votes`, {direction: -1}, {
+        headers: {
+            Authorization: window.localStorage.getItem('token')
+        }
+    })
+    .then((res) => {
+        getData(`${baseURL}/comments`)
+        setVoteDown(true)
+        
     })
     .catch((err) => {
     })
