@@ -1,10 +1,13 @@
 import React from 'react' 
+import erro404 from './img/erro404.jpg'
+import {ImgContainer, Image} from './style'
+
 
 function ErrorPage() {
     return(
-        <div>
-           ERROR 404
-        </div>
+        <ImgContainer>
+           <Image src={erro404}/>
+        </ImgContainer>
     )
 }
 

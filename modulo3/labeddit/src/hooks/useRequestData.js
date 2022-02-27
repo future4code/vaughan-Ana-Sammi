@@ -1,27 +1,28 @@
-import {useEffect, useState} from 'react' 
-import axios from 'axios'
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const useRequestData = (initialData, url) => {
-    const [data, setData] = useState(initialData)
+  const [data, setData] = useState(initialData);
 
-    useEffect(() => {getData()}, [url])
+  useEffect(() => {
+    getData();
+  }, [url]);
 
-    const getData = () => {
-        axios.get(url, {
-            headers: {
-                Authorization: window.localStorage.getItem('token')
-            }
-        })
-        .then((res) => {
-            setData(res.data)
-            getData()
-        })
-        .catch((err) => {
-            console.log(err.response)
-        })
-    }
+  const getData = () => {
+    axios
+      .get(url, {
+        headers: {
+          Authorization: window.localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        setData(res.data);
+        getData();
+      })
+      .catch((err) => {});
+  };
 
-    return [data, getData]
-}
+  return [data, getData];
+};
 
-export default useRequestData
+export default useRequestData;

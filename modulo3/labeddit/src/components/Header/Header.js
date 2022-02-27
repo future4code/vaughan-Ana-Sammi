@@ -1,55 +1,62 @@
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import {StyledToolbar} from './style'
-import {goToFeed, goToLogin, goToSignUp} from '../../routes/coordinator'
-import {useNavigate} from 'react-router-dom'
+import React from "react";
+import AppBar from "@mui/material/AppBar";
+import Button from "@mui/material/Button";
+import { StyledToolbar } from "./style";
+import { goToFeed, goToLogin, goToSignUp } from "../../routes/coordinator";
+import { useNavigate } from "react-router-dom";
 
-
-const Header = ({buttonText, setButtonText}) => {
+const Header = ({ buttonText, setButtonText }) => {
   const navigate = useNavigate();
-  const token = window.localStorage.getItem("token")
+  const token = window.localStorage.getItem("token");
 
   const logout = () => {
-    window.localStorage.removeItem('token')
-  }
+    window.localStorage.removeItem("token");
+  };
 
   const buttonTextAction = () => {
-    if (token){
-      logout()
-      setButtonText("Login")
-      goToLogin(navigate)
+    if (token) {
+      logout();
+      setButtonText("Login");
+      goToLogin(navigate);
     } else {
-      goToLogin(navigate)
+      goToLogin(navigate);
     }
-  }
+  };
 
   return (
-      <AppBar position="static">
-        <StyledToolbar>
-          <Button 
-            onClick={() => goToFeed(navigate)} 
-            color="inherit" 
+    <AppBar position="static">
+      <StyledToolbar>
+        <Button onClick={() => goToFeed(navigate)} color="inherit" size="large">
+          {" "}
+          LabEddit{" "}
+        </Button>
+
+        <div>
+          <Button
+            onClick={buttonTextAction}
+            variant="text"
+            color="secondary"
+            mr={"2"}
             size="large"
-          > LabEddit </Button>
+          >
+            {" "}
+            {buttonText}{" "}
+          </Button>
 
-          <div>
-            <Button 
-                onClick={() => goToSignUp(navigate)} 
-                variant="contained" 
-                color="secondary"
-            > Cadastre-se </Button>
-
-            <Button 
-                onClick={buttonTextAction} 
-                variant="contained" 
-                color="secondary"
-            > {buttonText} </Button>
-          </div>
-
-        </StyledToolbar>
-      </AppBar>
+          <Button
+            onClick={() => goToSignUp(navigate)}
+            variant="outlined"
+            color="secondary"
+            ml={"2"}
+            size="large"
+          >
+            {" "}
+            Cadastre-se{" "}
+          </Button>
+        </div>
+      </StyledToolbar>
+    </AppBar>
   );
-}
+};
 
-export default Header
+export default Header;

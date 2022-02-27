@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { goToLogin } from "../routes/coordinator";
 
 const useProtectedPage = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        const token = window.localStorage.getItem('token')
-        if (!token){
-            goToLogin(navigate)
-        }
-    }, [navigate])
-}
+  useEffect(() => {
+    const token = window.localStorage.getItem("token");
+    if (!token) {
+      goToLogin(navigate);
+    }
+  }, [navigate]);
+};
 
-export default useProtectedPage
+export default useProtectedPage;

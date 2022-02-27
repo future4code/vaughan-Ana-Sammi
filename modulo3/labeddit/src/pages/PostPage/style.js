@@ -8,13 +8,14 @@ export const MainContainer = styled.div`
     align-items: center;
 `
 export const PostCard = styled(Card)`
-    width: 60vw;
+    max-width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: 2rem;
     align-self: center;
     align-items: center;
+    
 `
 export const Container = styled(CardContent)`
     display: flex;
@@ -28,18 +29,14 @@ export const Container = styled(CardContent)`
 
 export const ContainerComment = styled.div`
     display: flex;
-    flex-direction:column;
-
-    
+    flex-direction: column;
+    align-items: center;
 `
 export const ButtonContainer = styled.div`
     p {
         transform:translateX(30%);
         margin: .5rem 1rem 0 1rem;
     }
-    margin-right: 3rem;
-    margin-left: 3rem;
-    margin-top: -3rem;
     display: flex;
 `
 
