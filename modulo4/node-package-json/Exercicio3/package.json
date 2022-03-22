@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Erro\" && exit 1",
-    "start": "node ./index.js"
+    "adicionar-tarefa": "node ./index.js"
   },
   "keywords": [],
   "author": "",
