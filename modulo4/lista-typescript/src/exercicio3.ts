@@ -6,12 +6,18 @@ export enum GENERO {
     TERROR="terror"
 }
 
-export const organizaFilmes = (nome: string, anoLancamento: number, genero: GENERO, pontuacao? : number)
-: {nome: string, anoLancamento: number, genero: GENERO, pontuacao? : number} => {
-    
-         return { nome, anoLancamento, genero, pontuacao }
-    
-    
+type Filme = {nome: string, anoLancamento: number, genero: GENERO, pontuacao? : number | null}
+
+export const organizaFilmes = (nome: string, anoLancamento: number, genero: GENERO, pontuacao? : number | null)
+: Filme => {
+        const filme: Filme = {
+            nome, 
+            anoLancamento, 
+            genero, 
+            pontuacao
+        }
+         return filme
+
 }
 
 
