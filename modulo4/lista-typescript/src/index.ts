@@ -6,6 +6,7 @@ import {listaPessoas, filtraAdmin} from './exercicio5'
 import {pegarSaldoNegativo, listaClientes} from './exercicio6'
 import { ordenaEstoque, estoque } from "./exercicio7";
 import {checaRenovacao} from './exercicio8'
+import {anagrama} from './exercicio9';
 
 // console.log(retornaFrase("ana", "11/03/1987"))
 
@@ -21,5 +22,9 @@ import {checaRenovacao} from './exercicio8'
 
 // console.table(ordenaEstoque(estoque))
 
-console.log(checaRenovacao("11/03/1987", "24/08/2003"))
+// console.log(checaRenovacao("11/03/1987", "24/08/2009"))
+
+// console.log(anagrama("piu"))
+
+
 
