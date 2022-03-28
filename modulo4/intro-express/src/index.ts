@@ -89,11 +89,17 @@ app.get("/posts/:userId", (req, res) => {
 app.delete("/posts/:postId", (req, res) => {
     let id = Number(req.params.postId)
     const deletePost = Posts.filter((post) => {
-        return post.id === id
+        return post.id !== id
     })
-    Posts.shift()
+    res.status(200).send(deletePost)   
+})
 
-       
+app.delete("/users/:userId", (req, res) => {
+    let id = Number(req.params.userId)
+    const deleteUser = Users.filter((user) => {
+        return user.id !== id
+    })
+    res.status(200).send(deleteUser)   
 })
 
 app.listen(3003, () => {
