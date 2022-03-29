@@ -9,16 +9,14 @@ app.get("/ping", (req, res) => {
   res.send("Pong! 🏓");
 });
 
-app.listen(3003, () => {
-  console.log("Servidor rodando");
-});
 
 type Task = {
-  userId: number | string,
-  id: number | string,
+  userId: number,
+  id: number,
   title: string,
   completed: boolean
 };
+
 
 const toDoList: Task[] = [
   {
@@ -38,12 +36,14 @@ const toDoList: Task[] = [
     id: 3,
     title: "lavar louça",
     completed: false,
-  },
+  }
 ];
+
 
 app.get("/list", (req, res) => {
   res.send(toDoList);
 });
+
 
 app.get("/list/:status", (req, res) => {
   const status = req.params.status;
@@ -60,7 +60,7 @@ app.post("/createtask", (req, res) => {
     const userId = Number(req.headers.authorization)
     const title: string = req.body.title
     const isCompleted: boolean = req.body.completed
-    const id = Date.now().toString()
+    const id = Date.now()
 
     const newTask = {
         userId: userId,
@@ -73,6 +73,7 @@ app.post("/createtask", (req, res) => {
 
     res.send(toDoList)
 })
+
 
 app.put("/list/:postId", (req, res) => {
     const postId = Number(req.params.postId)
@@ -92,7 +93,7 @@ app.put("/list/:postId", (req, res) => {
     })
 
     
-app.delete("/list/:postId", (req, res) => {
+app.delete("/list/delete/:postId", (req, res) => {
     const postId = Number(req.params.postId)
 
     const listUpdate = toDoList.filter((task) => {
@@ -102,14 +103,29 @@ app.delete("/list/:postId", (req, res) => {
 })
 
 
-app.get("/list/:userId", (req, res) => {
-    const userId = Number(req.params.userId)
-
+app.get("/:userId/list", (req, res) => {
+    const userId = req.params.userId
+    
     const usersList = toDoList.filter((task) => {
-        return Number(task.userId) === userId 
+        return task.userId === Number(userId)
     })
 
-    res.send(usersList)
+    const otherList = toDoList.filter((task) => {
+      return task.userId !== Number(userId)
+    })
+
+    const newList = {
+      todos: {
+        selectedUser: usersList, 
+        others: otherList
+      }
+    };
+
+    res.status(220).send(newList)
 })
 
 
+
+app.listen(3003, () => {
+  console.log("Servidor tá rodandoo");
+});
