@@ -1,4 +1,6 @@
 import express from "express";
+import { STATUS_CODES } from "http";
+import { runInNewContext } from "vm";
 import { inventory, Product } from "./data";
 
 const app = express();
@@ -15,15 +17,7 @@ app.post("/newproduct", (req, res) => {
             name: req.body.name,
             price: req.body.price,
         };
-        inventory.push(newProduct);
-        let updatedInventory = inventory.map((item) => {
-            return {
-                id: item.id,
-                name: item.name,
-                price: item.price,
-            };
-        });
-
+        
         if (!newProduct.name) {
             throw new Error("Preencha o nome do produto")
         } else if (!newProduct.price) {
@@ -40,6 +34,17 @@ app.post("/newproduct", (req, res) => {
         if (newProduct.price <= 0) {
             throw new Error("O valor do produto não pode ser menor ou igual a zero")
         }
+
+        if(newProduct.name && newProduct.price) {
+            inventory.push(newProduct)
+        }
+        let updatedInventory = inventory.map((item) => {
+            return {
+                id: item.id,
+                name: item.name,
+                price: item.price,
+            };
+        });
         res.status(200).send(updatedInventory)
     }
 
@@ -97,6 +102,7 @@ app.get("/allproducts", (req, res) => {
 app.put("/updateproduct/:productId", (req, res) => {
    try {
     let productId = req.params.productId;
+
     let productFound = false;
 
     for(let i=0; i<inventory.length; i++) {
@@ -165,6 +171,7 @@ app.delete("/delete/:productId", (req, res) => {
     try {
     const productId = req.params.productId
     let productFound = false;
+
 
     for(let i=0; i<inventory.length; i++) {
         if (inventory[i].id === productId) {
