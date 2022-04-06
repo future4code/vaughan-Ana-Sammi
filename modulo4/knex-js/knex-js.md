@@ -122,3 +122,35 @@ app.post("/movie", async(req, res) => {
         res.status(400).send(e.message)
     }
 })
+
+## Exercício 6
+const getAllMovies = async (): Promise<any> => {
+  const result = await connection("Filmes").select().limit(15); 
+    return result
+};
+
+
+app.get("/movie/all", async (req, res) => {
+  try {
+    const filmes = await getAllMovies()
+    res.status(200).send(filmes)
+  } catch (e: any) {
+    res.status(400).send(e.message);
+  }
+});
+
+## Exercício 7
+const searchMovie = async(busca: string): Promise<any> => {
+    const result = await connection("Filmes").select().where(`titulo, like, "${busca}"`);
+    return result; 
+};
+
+app.get("/movie/search", async(req, res) => {
+    try {
+        const resultado = await searchMovie(req.query.busca as string);
+        res.status(200).send(resultado)
+       
+    } catch(e:any){
+        res.status(400).send(e.message)
+    }
+});
