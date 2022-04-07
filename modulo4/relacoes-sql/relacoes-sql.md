@@ -55,4 +55,17 @@ GROUP BY Filmes.id;
 
 ## Exercício 5
 
-a. 
+a. O primeiro JOIN une as tabelas Movie e MovieCast através do id dos filmes (porém só traz como resultado o que for comum nas duas). O segundo JOIN une a tabela Actor e MovieCast através do id do ator.
+
+b. SELECT Filmes.id, Filmes.titulo, Actor.id, Actor.name FROM Filmes
+LEFT JOIN Rating ON Filmes.id = Rating.id
+LEFT JOIN MovieCast ON MovieCast.movie_id = Filmes.id
+JOIN Actor ON Actor.id = MovieCast.actor_id;
+
+c. Deu erro, mas não sei porque.
+
+d. SELECT Filmes.titulo, Rating.rate, Rating.comment, Actor.name as actor_name FROM Filmes
+JOIN MovieCast ON MovieCast.movie_id = Filmes.id
+JOIN Rating ON MovieCast.movie_id = Rating.movie_id
+JOIN Actor ON MovieCast.actor_id = Actor.id;
+
