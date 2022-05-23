@@ -4,7 +4,7 @@ import { Authenticator } from "../services/Authenticator";
 
 export async function getUserProfile (req: Request, res: Response) {
     try {
-        const token = req.headers.authorization
+        const token: string = req.headers.authorization
        
         if(!token) {
             res.status(422).send("Esse endpoint exige uma autorização a ser passada nos headers")
@@ -14,10 +14,10 @@ export async function getUserProfile (req: Request, res: Response) {
         const tokenData = authenticator.getTokenData(token)
         
         const userDatabase = new UserDatabase()
-        const users = await userDatabase.getUserData(token)
+        const user = await userDatabase.getUserData(tokenData.id)
       
 
-        res.status(200).send(users)
+        res.status(200).send(user)
     }
 
     catch (e) {

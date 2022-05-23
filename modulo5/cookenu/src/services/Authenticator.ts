@@ -9,13 +9,11 @@ export interface AuthenticationData {
 
 export class Authenticator {
     public getTokenData(token: string): AuthenticationData | null {
-        try {
+       
         const data = jwt.verify(token, process.env.JWT_KEY)
         return data as AuthenticationData
-        }
-        catch (e){
-            return null;
-        }
+        
+        
     };
 
     public generate(input: AuthenticationData): string {

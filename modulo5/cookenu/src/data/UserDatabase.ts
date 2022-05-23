@@ -44,13 +44,13 @@ export class UserDatabase extends BaseDatabase {
 
   public async getUserData(token: string): Promise<any> {
     try{
-      const userData = await BaseDatabase.connection("cookenu_users").select("name", "email", "id")
+      const userData = await BaseDatabase.connection("cookenu_users")
+        .select("name", "email", "id")
+        .where({id: token})
       
-      return userData.map((data) => {
-        data.name, data.email, data.id})
-
-        
-    } catch (e){
+      return userData[0]
+    } 
+      catch (e){
        throw new Error(e.sqlMessage || e.message);
     }
   }
