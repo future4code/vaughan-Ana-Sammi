@@ -1,9 +1,8 @@
 import {Request, Response} from 'express';
 import { UserDatabase } from '../data/UserDatabase';
-import { User } from '../entities/User';
 import { Authenticator } from '../services/Authenticator';
 import { HashManager } from '../services/HashManager';
-import { IdGenerator } from '../services/idGenerator';
+
 
 export async function login(req: Request, res: Response) {
     try{
@@ -26,7 +25,7 @@ export async function login(req: Request, res: Response) {
         }
 
         const authenticator = new Authenticator
-        const token = authenticator.generate({id: user.getId(), role: user.getRole()})
+        const token = authenticator.generate({role: user.getRole(), id: user.getId()})
 
         res.status(201).send({message:"Usuário logado com sucesso", token})
     }

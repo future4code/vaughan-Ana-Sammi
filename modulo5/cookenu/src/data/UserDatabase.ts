@@ -18,11 +18,11 @@ export class UserDatabase extends BaseDatabase {
     try {
         await BaseDatabase.connection("cookenu_users")
             .insert({
-                id: user.getId(),
-                name: user.getName(),
-                email: user.getEmail(),
-                password: user.getPassword(),
-                role: user.getRole()
+              name: user.getName(),
+              email: user.getEmail(),
+              password: user.getPassword(),
+              role: user.getRole(),
+              id: user.getId()
             });
     }
     catch (e) {
@@ -33,12 +33,25 @@ export class UserDatabase extends BaseDatabase {
   public async getAllUsers(): Promise<User[]> {
     try{
     const users = await BaseDatabase.connection("cookenu_users")
-      .select("id", "name", "email", "role")
+      .select("name", "email", "role", "id")
 
     return users.map((user => User.toUserModel(user)))
     }
     catch (e) {
       throw new Error(e.sqlMessage || e.message);
+    }
+  }
+
+  public async getUserData(token: string): Promise<any> {
+    try{
+      const userData = await BaseDatabase.connection("cookenu_users").select("name", "email", "id")
+      
+      return userData.map((data) => {
+        data.name, data.email, data.id})
+
+        
+    } catch (e){
+       throw new Error(e.sqlMessage || e.message);
     }
   }
 };

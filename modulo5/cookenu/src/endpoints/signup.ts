@@ -29,7 +29,8 @@ export async function signup(req: Request, res: Response) {
         await userDatabase.createUser(newUser)
 
         const authenticator = new Authenticator
-        const token = authenticator.generate({id, role})
+        const token = authenticator.generate({role, id})
+       
 
         res.status(201).send({message:"Usuário criado com sucesso", token})
     }
