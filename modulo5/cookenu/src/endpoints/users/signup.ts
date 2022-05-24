@@ -1,9 +1,9 @@
 import {Request, Response} from 'express';
-import { UserDatabase } from '../data/UserDatabase';
-import { User } from '../entities/User';
-import { Authenticator } from '../services/Authenticator';
-import { HashManager } from '../services/HashManager';
-import { IdGenerator } from '../services/idGenerator';
+import { UserDatabase } from '../../data/UserDatabase';
+import { User } from '../../entities/User';
+import { Authenticator } from '../../services/Authenticator';
+import { HashManager } from '../../services/HashManager';
+import { IdGenerator } from '../../services/idGenerator';
 
 export async function signup(req: Request, res: Response) {
     try{
