@@ -6,7 +6,6 @@ import { AddressInfo } from "net";
 
 dotenv.config();
 
-
 export const app: Express = express();
 app.use(express.json());
 app.use(cors());

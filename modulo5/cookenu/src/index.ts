@@ -9,8 +9,8 @@ import { signup } from "./endpoints/users/signup";
 
 app.get("/user", getAllUsers);
 app.get("/user/profile", getUserProfile);
-app.get("/user/:id/profile", getUserById)
+app.get("/user/:id/profile", getUserById);
 app.post("/user", signup);
 app.post("/user/login", login);
-app.get("/recipe/:id", getRecipeById)
+app.get("/recipe/:id", getRecipeById);
 app.post("/recipe", createRecipe);

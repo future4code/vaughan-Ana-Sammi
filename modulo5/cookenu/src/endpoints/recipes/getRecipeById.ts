@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
 import { RecipeDatabase } from "../../data/RecipeDatabase";
-import { Recipe } from "../../entities/Recipe";
-import { Authenticator } from "../../services/Authenticator";
 
 
 export async function getRecipeById(

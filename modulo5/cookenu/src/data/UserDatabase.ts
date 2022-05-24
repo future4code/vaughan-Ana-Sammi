@@ -12,46 +12,46 @@ export class UserDatabase extends BaseDatabase {
     } catch (e) {
       throw new Error(e.sqlMessage || e.message);
     }
-  };
+  }
 
   public async createUser(user: User): Promise<void> {
     try {
-        await BaseDatabase.connection("cookenu_users")
-            .insert({
-              name: user.getName(),
-              email: user.getEmail(),
-              password: user.getPassword(),
-              role: user.getRole(),
-              id: user.getId()
-            });
+      await BaseDatabase.connection("cookenu_users").insert({
+        name: user.getName(),
+        email: user.getEmail(),
+        password: user.getPassword(),
+        role: user.getRole(),
+        id: user.getId(),
+      });
+    } catch (e) {
+      throw new Error(e.sqlMessage || e.message);
     }
-    catch (e) {
-        throw new Error(e.sqlMessage || e.message);
-    }
-  };
+  }
 
   public async getAllUsers(): Promise<User[]> {
-    try{
-    const users = await BaseDatabase.connection("cookenu_users")
-      .select("name", "email", "role", "id")
+    try {
+      const users = await BaseDatabase.connection("cookenu_users").select(
+        "name",
+        "email",
+        "role",
+        "id"
+      );
 
-    return users.map((user => User.toUserModel(user)))
-    }
-    catch (e) {
+      return users.map((user) => User.toUserModel(user));
+    } catch (e) {
       throw new Error(e.sqlMessage || e.message);
     }
   }
 
   public async getUserData(token: string): Promise<any> {
-    try{
+    try {
       const userData = await BaseDatabase.connection("cookenu_users")
         .select("name", "email", "id")
-        .where({id: token})
-      
-      return userData[0]
-    } 
-      catch (e){
-       throw new Error(e.sqlMessage || e.message);
+        .where({ id: token });
+
+      return userData[0];
+    } catch (e) {
+      throw new Error(e.sqlMessage || e.message);
     }
   }
-};
+}
